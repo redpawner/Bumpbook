@@ -4,7 +4,7 @@ import useUserStore from '../states/user';
 
 const Navbar = () => {
   const isAuthenticated = useUserStore((state) => {
-    return state.authenticated;
+    return state.user.authenticated;
   });
   return (
     <div className="navbar">
@@ -14,7 +14,7 @@ const Navbar = () => {
         </>
       ) : (
         <>
-          <h1>Navbar is not authenticated</h1>
+          <h1 className="welcome">Open your Bumpbook...</h1>
         </>
       )}
     </div>

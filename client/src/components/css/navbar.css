@@ -1,8 +1,13 @@
 .navbar {
-  background-color: #adc3c6;
+  background-color: var(--p-dark);
   width: 100%;
   height: 10vh;
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+}
+
+.welcome {
+  font-style: italic;
+  text-align: center;
 }
