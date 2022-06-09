@@ -23,15 +23,15 @@ async function register(req, res) {
     });
     await doc.save(function (err) {
       if (err) {
-        res.sendStatus(400);
+        res.status(400).send({ error: 'registration failed' });
       } else {
         console.log('added successfully');
-        res.sendStatus(201);
+        res.status(201).send({ message: 'registered' });
       }
     });
   } catch (error) {
     console.log('error with login');
-    res.sendStatus(500);
+    res.sendStatus(500); //TODO: add object
   }
 }
 
@@ -45,7 +45,7 @@ async function addApt(req, res) {
       },
       { upsert: true }
     );
-    res.status(200).send('added');
+    res.status(200).send({ message: 'added' });
   } catch (error) {
     console.log('error with addApt');
     res.sendStatus(500);
@@ -61,10 +61,10 @@ async function delApt(req, res) {
         $pull: { appointments: apt },
       }
     ),
-      res.status(200).send('deleted');
+      res.status(200).send({ message: 'deleted' });
   } catch (error) {
     console.log('error with delApt');
-    res.sendStatus(500);
+    res.status(500).send({ error: 'error' });
   }
 }
 

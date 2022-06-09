@@ -14,12 +14,21 @@ const Landing = () => {
       lastName: event.target.lastName.value,
       password: event.target.password.value,
     };
-    register(newUser).then(() => {
-      getUser({ email: newUser.email })
-        .then((res) => update(res))
-        .then(() => authorise())
-        .catch((err) => console.log(err));
-    });
+
+    register(newUser)
+      .then((response) => {
+        if (response.error) {
+          alert(`${response.message}`);
+        } else {
+          getUser({ email: newUser.email })
+            .then((res) => update(res))
+            .then(() => authorise())
+            .catch((err) => console.log(err));
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
 
   return (

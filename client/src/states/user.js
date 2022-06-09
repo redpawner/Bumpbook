@@ -19,6 +19,7 @@ const useUserStore = create((set) => ({
   updateAppointments: (apt) =>
     set((state) => ({
       user: {
+        ...state.user,
         appointments: apt,
       },
     })),

@@ -1,4 +1,4 @@
-import { addApt } from '../../services/api-client';
+import { addApt, delApt } from '../../services/api-client';
 import useUserStore from '../../states/user';
 import noOld from '../../utility/utils';
 import Appointment from './appointment';
@@ -14,15 +14,34 @@ const Schedule = () => {
   const updateAppointments = useUserStore((state) => {
     return state.updateAppointments;
   });
+
+  const deleteApt = (aptInfo) => {
+    const del = { ...aptInfo, id };
+    console.log(del);
+    delApt(del);
+    const newAppointments = [...appointments].filter((e) => e !== aptInfo);
+    console.log(newAppointments);
+    updateAppointments(newAppointments);
+  };
+
   const listAppointments = noOld(appointments)
     .sort((a, b) => {
       return new Date(a.date) - new Date(b.date);
     })
     .map((apt, index) => {
       return index === 0 ? (
-        <Appointment aptInfo={apt} first="true" key={apt.title} />
+        <Appointment
+          aptInfo={apt}
+          first="true"
+          key={apt.title}
+          delApt={(aptInfo) => deleteApt(aptInfo)}
+        />
       ) : (
-        <Appointment aptInfo={apt} key={apt.title} />
+        <Appointment
+          aptInfo={apt}
+          key={apt.title}
+          delApt={(aptInfo) => deleteApt(aptInfo)}
+        />
       );
     });
 

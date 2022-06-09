@@ -1,21 +1,7 @@
 import React from 'react';
-import { delApt } from '../../services/api-client';
 import './css/appointment.css';
-import useUserStore from '../../states/user';
 
-const Appointment = ({ aptInfo, first }) => {
-  const appointments = useUserStore((state) => {
-    return state.user.appointments;
-  });
-
-  const id = useUserStore((state) => {
-    return state.user._id;
-  });
-
-  const updateAppointments = useUserStore((state) => {
-    return state.updateAppointments;
-  });
-
+const Appointment = ({ aptInfo, first, delApt }) => {
   const prettyDate = new Date(aptInfo.date).toLocaleDateString('en-gb', {
     weekday: 'long',
     year: 'numeric',
@@ -29,12 +15,7 @@ const Appointment = ({ aptInfo, first }) => {
   });
 
   const deleteApt = () => {
-    console.log('this is the id:' + id);
-    const del = { ...aptInfo };
-    console.log(del);
-    delApt(del);
-    const newAppointments = [...appointments].filter((e) => e === aptInfo);
-    updateAppointments(newAppointments);
+    delApt(aptInfo);
   };
 
   return (
