@@ -59,6 +59,7 @@ const Schedule = () => {
       { title: newApt.title, date: newApt.date },
     ];
     updateAppointments(newAppointments);
+    event.target.reset();
   };
 
   return (

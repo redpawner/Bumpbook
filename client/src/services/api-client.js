@@ -26,6 +26,19 @@ export function register(newUser) {
     });
 }
 
+export function updDate(date) {
+  const options = {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(date),
+  };
+  return fetch(baseUrl + '/date', options)
+    .then((res) => res.json())
+    .catch((error) => {
+      console.log(error);
+    });
+}
+
 export function addApt(apt) {
   const options = {
     method: 'POST',

@@ -54,7 +54,7 @@ input {
   font-size: larger;
 }
 
-button {
+.landing-btn {
   height: 9vh;
   background-color: var(--p-dark);
   font-size: 30px;

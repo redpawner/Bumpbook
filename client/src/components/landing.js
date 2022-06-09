@@ -64,7 +64,9 @@ const Landing = () => {
           />
           <label htmlFor="password">Password</label>
           <input placeholder="********" name="password" required />
-          <button type="submit"> Create account </button>
+          <button type="submit" className="landing-btn">
+            Create account
+          </button>
         </form>
       </div>
       <div className="logo"></div>
@@ -88,7 +90,9 @@ const Landing = () => {
             name="password"
             required
           />
-          <button type="submit"> Login </button>
+          <button className="landing-btn" type="submit">
+            Login
+          </button>
         </form>
         {/* {test.authenticated ? <h1>working</h1> : <h1>not working</h1>}
         <h1>{test.user.email}</h1> */}

@@ -35,6 +35,21 @@ async function register(req, res) {
   }
 }
 
+async function updDate(req, res) {
+  try {
+    console.log(req.body.date);
+    await User.findOneAndUpdate(
+      { _id: req.body.id },
+      { dueDate: req.body.date },
+      { upsert: true }
+    );
+    res.status(200).send({ message: 'due date added' });
+  } catch (error) {
+    console.log('error with updDate');
+    res.status(500).send({ error: 'error with due date' });
+  }
+}
+
 async function addApt(req, res) {
   try {
     const apt = { title: req.body.title, date: req.body.date };
@@ -68,4 +83,4 @@ async function delApt(req, res) {
   }
 }
 
-module.exports = { getUser, register, addApt, delApt };
+module.exports = { getUser, register, addApt, delApt, updDate };

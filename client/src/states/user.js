@@ -16,6 +16,14 @@ const useUserStore = create((set) => ({
   login: () => set({ authenticated: true }),
   logout: () => set({ authenticated: false }),
   updateUser: (res) => set({ user: res }),
+  updateDate: (date) => {
+    set((state) => ({
+      user: {
+        ...state.user,
+        dueDate: date,
+      },
+    }));
+  },
   updateAppointments: (apt) =>
     set((state) => ({
       user: {
