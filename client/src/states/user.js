@@ -1,7 +1,7 @@
 import create from 'zustand';
 
 const useUserStore = create((set) => ({
-  authenticated: true,
+  authenticated: false,
   user: {
     _id: '',
     email: '',
@@ -10,15 +10,21 @@ const useUserStore = create((set) => ({
     password: '',
     dueDate: '',
     favNames: [],
-    appointments: [
-      { title: 'silly', date: '2022-07-27T08:46:00Z' },
-      { title: 'silly', date: '2022-08-27T08:46:00Z' },
-    ],
+    appointments: [],
     pictures: [],
   },
   login: () => set({ authenticated: true }),
   logout: () => set({ authenticated: false }),
   updateUser: (res) => set({ user: res }),
+  updateAppointments: (apt) =>
+    set((state) => ({
+      user: {
+        appointments: [
+          ...state.user.appointments,
+          { title: apt.title, date: apt.date },
+        ],
+      },
+    })),
 }));
 
 export default useUserStore;

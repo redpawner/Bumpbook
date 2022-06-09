@@ -1,3 +1,4 @@
+import { addApt } from '../../services/api-client';
 import useUserStore from '../../states/user';
 import noOld from '../../utility/utils';
 import Appointment from './appointment';
@@ -10,7 +11,9 @@ const Schedule = () => {
   const id = useUserStore((state) => {
     return state.user._id;
   });
-
+  const updateAppointments = useUserStore((state) => {
+    return state.updateAppointments;
+  });
   // appointments: [{ title: String, date: Date }],
   const listAppointments = noOld(appointments)
     .sort((a, b) => {
@@ -31,13 +34,8 @@ const Schedule = () => {
       date: event.target.date.value,
       id: id,
     };
-
-    // register(newUser).then(() => {
-    //   getUser({ email: newUser.email })
-    //     .then((res) => update(res))
-    //     .then(() => authorise())
-    //     .catch((err) => console.log(err));
-    // });
+    addApt(newApt).catch((err) => console.log(err));
+    updateAppointments(newApt);
   };
 
   return (

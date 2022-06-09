@@ -6,7 +6,6 @@ import './css/landing.css';
 const Landing = () => {
   const authorise = useUserStore((state) => state.login);
   const update = useUserStore((state) => state.updateUser);
-  const test = useUserStore((state) => state);
 
   const submitRegister = (event) => {
     event.preventDefault();

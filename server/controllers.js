@@ -33,7 +33,6 @@ async function register(req, res) {
 async function addApt(req, res) {
   try {
     const apt = { title: req.body.title, date: req.body.date };
-
     await User.findOneAndUpdate(
       { _id: req.body.id },
       {
