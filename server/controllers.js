@@ -30,4 +30,32 @@ async function register(req, res) {
   }
 }
 
-module.exports = { getUser, register };
+async function addApt(req, res) {
+  try {
+    const apt = { title: req.body.title, date: req.body.date };
+
+    await User.findOneAndUpdate(
+      { _id: req.body.id },
+      {
+        $push: { appointments: apt },
+      },
+      { upsert: true }
+    );
+    res.status(200).send('added');
+  } catch (error) {
+    console.log('error with addApt');
+    res.sendStatus(500);
+  }
+}
+
+async function delApt(req, res) {
+  try {
+    await User.deleteOne({ id: req.body.id });
+    res.status(200).send('deleted');
+  } catch (error) {
+    console.log('error with delApt');
+    res.sendStatus(500);
+  }
+}
+
+module.exports = { getUser, register, addApt, delApt };

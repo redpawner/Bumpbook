@@ -7,23 +7,19 @@ import Schedule from './appointments/schedule';
 
 const Dashboard = () => {
   const isAuthenticated = useUserStore((state) => {
-    return state.user.authenticated;
+    return state.authenticated;
   });
 
   return (
     <div className="dashboard">
       {isAuthenticated ? (
-        <>
-          <div className="homeContainer">
-            <Schedule />
-            <Infobar />
-            <Picturereel />
-          </div>
-        </>
+        <div className="homeContainer">
+          <Schedule />
+          <Infobar />
+          <Picturereel />
+        </div>
       ) : (
-        <>
-          <Landing />
-        </>
+        <Landing />
       )}
     </div>
   );

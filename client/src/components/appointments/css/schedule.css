@@ -1,0 +1,22 @@
+.schContainer {
+  margin: 2em;
+  height: 80vh;
+  width: 20vw;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+.aptContainer {
+  height: 70%;
+}
+
+.schFooter {
+  background-color: var(--p-dark);
+}
+
+.submit {
+  background-color: var(--primary);
+}

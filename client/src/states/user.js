@@ -1,15 +1,19 @@
 import create from 'zustand';
 
 const useUserStore = create((set) => ({
-  authenticated: false,
+  authenticated: true,
   user: {
+    _id: '',
     email: '',
     firstName: '',
     lastName: '',
     password: '',
     dueDate: '',
     favNames: [],
-    appointments: [],
+    appointments: [
+      { title: 'silly', date: '2022-07-27T08:46:00Z' },
+      { title: 'silly', date: '2022-08-27T08:46:00Z' },
+    ],
     pictures: [],
   },
   login: () => set({ authenticated: true }),

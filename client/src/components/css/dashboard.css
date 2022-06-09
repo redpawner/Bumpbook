@@ -1,3 +1,4 @@
 .homeContainer {
   display: flex;
+  align-items: center;
 }

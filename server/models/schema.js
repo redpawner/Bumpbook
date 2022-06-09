@@ -3,6 +3,7 @@ const { Schema } = mongoose;
 const conn = require('./db');
 
 const Pics = new Schema({ url: String, date: Date }, { timestamps: true });
+const Apts = new Schema({ title: String, date: Date });
 const User = new Schema({
   email: { type: String, required: true },
   firstName: { type: String, required: true },
@@ -10,7 +11,7 @@ const User = new Schema({
   password: { type: String, required: true },
   dueDate: { type: Date },
   favNames: [{ name: String, gender: String }],
-  appointments: [{ title: String, date: Date }],
+  appointments: [Apts],
   pictures: [Pics],
 });
 

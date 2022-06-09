@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useId } from 'react';
 import { register, getUser } from '../services/api-client';
 import useUserStore from '../states/user';
 import './css/landing.css';
@@ -19,54 +19,72 @@ const Landing = () => {
     register(newUser).then(() => {
       getUser({ email: newUser.email })
         .then((res) => update(res))
-        .then(() => authorise());
+        .then(() => authorise())
+        .catch((err) => console.log(err));
     });
-    console.log(test);
   };
 
   return (
     <div className="landingContainer">
       <div className="formContainer">
         <div className="formHeader">
-          <h1 className="formtitle">Register</h1>
+          <h2 className="formtitle">Register</h2>
         </div>
         <form onSubmit={submitRegister}>
-          <label>Email</label>
+          <label htmlFor="email">Email</label>
           <input
             placeholder="babyontheway@bump.com"
             type="text"
+            id="email"
             name="email"
             required
           />
-          <label>First Name</label>
-          <input placeholder="Bunin" type="text" name="firstName" required />
-          <label>Last Name</label>
-          <input placeholder="Theoven" type="text" name="lastName" required />
-          <label>Password</label>
+          <label htmlFor="firstName">First Name</label>
+          <input
+            placeholder="Bunin"
+            type="text"
+            id="firstName"
+            name="firstName"
+            required
+          />
+          <label htmlFor="lastName">Last Name</label>
+          <input
+            placeholder="Theoven"
+            type="text"
+            id="lastName"
+            name="lastName"
+            required
+          />
+          <label htmlFor="password">Password</label>
           <input placeholder="********" name="password" required />
           <button type="submit"> Create account </button>
         </form>
       </div>
-      <div className="logo">
-        <div className="pixelart-to-css"></div>
-      </div>
+      <div className="logo"></div>
       <div className="formContainer">
         <div className="formHeader">
-          <h1 className="formtitle">Login</h1>
+          <h2 className="formtitle">Login</h2>
         </div>
         <form className="login">
-          <label>Email</label>
+          <label htmlFor="email2">Email</label>
           <input
             placeholder="superhuman@bump.com"
             type="text"
+            id="email2"
             name="email"
             required
           />
-          <label>Password</label>
-          <input placeholder="********" name="password" required />
+          <label htmlFor="password2">Password</label>
+          <input
+            placeholder="********"
+            id="password2"
+            name="password"
+            required
+          />
           <button type="submit"> Login </button>
         </form>
-        <h1>{test.user.email}</h1>
+        {/* {test.authenticated ? <h1>working</h1> : <h1>not working</h1>}
+        <h1>{test.user.email}</h1> */}
       </div>
     </div>
   );
