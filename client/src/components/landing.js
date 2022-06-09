@@ -1,4 +1,3 @@
-import React, { useId } from 'react';
 import { register, getUser } from '../services/api-client';
 import useUserStore from '../states/user';
 import './css/landing.css';

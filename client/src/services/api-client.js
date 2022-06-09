@@ -41,7 +41,7 @@ export function addApt(apt) {
 
 export function delApt(aptId) {
   const options = {
-    method: 'DEL',
+    method: 'DELETE',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(aptId),
   };

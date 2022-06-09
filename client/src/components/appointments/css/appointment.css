@@ -1,0 +1,8 @@
+.delete {
+  background-image: url(../../../images/icons8-delete-64.png);
+  height: 2vh;
+  width: 1vw;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-color: white;
+}

@@ -12,6 +12,11 @@ async function getUser(req, res) {
 }
 
 async function register(req, res) {
+  const user = await User.findOne({ email: req.body.email });
+  if (user)
+    return res
+      .status(409)
+      .send({ error: '409', message: 'User already exists' });
   try {
     const doc = new User({
       ...req.body,
@@ -49,8 +54,14 @@ async function addApt(req, res) {
 
 async function delApt(req, res) {
   try {
-    await User.deleteOne({ id: req.body.id });
-    res.status(200).send('deleted');
+    const apt = { title: req.body.title, date: req.body.date };
+    await User.findOneAndUpdate(
+      { _id: req.body.id },
+      {
+        $pull: { appointments: apt },
+      }
+    ),
+      res.status(200).send('deleted');
   } catch (error) {
     console.log('error with delApt');
     res.sendStatus(500);

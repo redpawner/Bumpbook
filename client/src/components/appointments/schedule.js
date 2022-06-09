@@ -14,28 +14,32 @@ const Schedule = () => {
   const updateAppointments = useUserStore((state) => {
     return state.updateAppointments;
   });
-  // appointments: [{ title: String, date: Date }],
   const listAppointments = noOld(appointments)
     .sort((a, b) => {
       return new Date(a.date) - new Date(b.date);
     })
     .map((apt, index) => {
       return index === 0 ? (
-        <Appointment aptInfo={apt} id={id} first="true" key={apt.title} />
+        <Appointment aptInfo={apt} first="true" key={apt.title} />
       ) : (
-        <Appointment aptInfo={apt} id={id} key={apt.title} />
+        <Appointment aptInfo={apt} key={apt.title} />
       );
     });
 
   const submitApt = (event) => {
     event.preventDefault();
+    console.log(id);
     const newApt = {
       title: event.target.title.value,
       date: event.target.date.value,
       id: id,
     };
     addApt(newApt).catch((err) => console.log(err));
-    updateAppointments(newApt);
+    const newAppointments = [
+      ...appointments,
+      { title: newApt.title, date: newApt.date },
+    ];
+    updateAppointments(newAppointments);
   };
 
   return (

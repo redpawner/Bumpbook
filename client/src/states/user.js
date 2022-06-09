@@ -19,10 +19,7 @@ const useUserStore = create((set) => ({
   updateAppointments: (apt) =>
     set((state) => ({
       user: {
-        appointments: [
-          ...state.user.appointments,
-          { title: apt.title, date: apt.date },
-        ],
+        appointments: apt,
       },
     })),
 }));

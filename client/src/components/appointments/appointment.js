@@ -1,6 +1,21 @@
 import React from 'react';
+import { delApt } from '../../services/api-client';
+import './css/appointment.css';
+import useUserStore from '../../states/user';
 
-const Appointment = ({ aptInfo, first, id }) => {
+const Appointment = ({ aptInfo, first }) => {
+  const appointments = useUserStore((state) => {
+    return state.user.appointments;
+  });
+
+  const id = useUserStore((state) => {
+    return state.user._id;
+  });
+
+  const updateAppointments = useUserStore((state) => {
+    return state.updateAppointments;
+  });
+
   const prettyDate = new Date(aptInfo.date).toLocaleDateString('en-gb', {
     weekday: 'long',
     year: 'numeric',
@@ -13,6 +28,15 @@ const Appointment = ({ aptInfo, first, id }) => {
     minute: '2-digit',
   });
 
+  const deleteApt = () => {
+    console.log('this is the id:' + id);
+    const del = { ...aptInfo };
+    console.log(del);
+    delApt(del);
+    const newAppointments = [...appointments].filter((e) => e === aptInfo);
+    updateAppointments(newAppointments);
+  };
+
   return (
     <>
       {first ? (
@@ -21,13 +45,15 @@ const Appointment = ({ aptInfo, first, id }) => {
           <p>
             {time} - {prettyDate}
           </p>
+          <div className="delete" onClick={deleteApt}></div>
         </div>
       ) : (
-        <div className="first">
+        <div className="upcoming">
           <p className="title">{aptInfo.title}</p>
           <p>
             {time} - {prettyDate}
           </p>
+          <div className="delete" onClick={deleteApt}></div>
         </div>
       )}
     </>
