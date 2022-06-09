@@ -8,7 +8,7 @@ const useUserStore = create((set) => ({
     firstName: '',
     lastName: '',
     password: '',
-    dueDate: '',
+    dueDate: null,
     favNames: [],
     appointments: [],
     pictures: [],

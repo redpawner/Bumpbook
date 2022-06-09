@@ -83,8 +83,6 @@ const DueCalc = ({ show, close }) => {
           ) : (
             <h2>Your baby is due... </h2>
           )}
-
-          <h1></h1>
         </div>
       </div>
     </div>

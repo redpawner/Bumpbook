@@ -1,0 +1,35 @@
+.infoContainer {
+  align-self: flex-start;
+  margin: 3em;
+  height: 30vh;
+  width: 80vw;
+  background-color: white;
+  display: flex;
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+.aptContainer {
+  display: grid;
+  grid-auto-columns: auto;
+  overflow: scroll;
+  height: 80%;
+}
+
+.schFooter {
+  background-color: var(--p-dark);
+  box-sizing: border-box;
+}
+
+.schFooter input {
+  height: 4vh;
+  font-size: large;
+}
+
+.submit {
+  font-size: larger;
+  background-color: var(--primary);
+  height: 6vh;
+  padding: 0px;
+  margin-bottom: 0px;
+}
