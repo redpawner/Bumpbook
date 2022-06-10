@@ -13,7 +13,7 @@ const getUser = async (req, res) => {
     const response = await User.findOne({ _id: id }, { __v: 0 });
     res.status(201).send(response);
   } catch (error) {
-    console.log('error with getUser');
+    console.log(error);
     res.status(500).send({ error: 'error' });
   }
 };
@@ -100,4 +100,43 @@ const delApt = async (req, res) => {
   }
 };
 
-module.exports = { getUser, register, addApt, delApt, updDate, login };
+const uploadImage = async (req, res) => {
+  try {
+    const pic = { url: req.file.path, date: req.body.date };
+    await User.findOneAndUpdate(
+      { _id: req.user.id },
+      {
+        $push: { pictures: pic },
+      },
+      { upsert: true }
+    );
+    res.status(200).send({ message: 'image uploaded' });
+  } catch (error) {
+    res.status(500).send({ error: 'error' });
+  }
+};
+
+// const getPictures = async (req, res) => {
+//   try {
+//     const id = req.user.id;
+//     const response = await User.findById({ _id: id }).select({
+//       pictures: 1,
+//       _id: 0,
+//     });
+//     res.status(201).send(response);
+//   } catch (error) {
+//     console.log('error with getUser');
+//     res.status(500).send({ error: 'error' });
+//   }
+// };
+
+module.exports = {
+  getUser,
+  register,
+  addApt,
+  delApt,
+  updDate,
+  login,
+  uploadImage,
+  // getPictures,
+};
