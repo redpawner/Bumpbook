@@ -1,60 +1,77 @@
 const User = require('./models/schema');
+const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
+const SECRET_KEY = process.env.SECRET_KEY || 'th1515n0tv3rys3cur3';
 
-async function getUser(req, res) {
+const generateAccessToken = (id) => {
+  return jwt.sign(id, SECRET_KEY, { expiresIn: '1800s' });
+};
+
+const getUser = async (req, res) => {
   try {
-    const { email } = req.body;
-    const response = await User.findOne({ email: email }, { __v: 0 });
+    const id = req.user.id;
+    const response = await User.findOne({ _id: id }, { __v: 0 });
     res.status(201).send(response);
   } catch (error) {
     console.log('error with getUser');
-    res.sendStatus(500);
+    res.status(500).send({ error: 'error' });
   }
-}
+};
 
-async function register(req, res) {
+const register = async (req, res) => {
   const user = await User.findOne({ email: req.body.email });
   if (user)
     return res
       .status(409)
       .send({ error: '409', message: 'User already exists' });
   try {
+    const hash = await bcrypt.hash(req.body.password, 10);
     const doc = new User({
       ...req.body,
+      password: hash,
     });
-    await doc.save(function (err) {
-      if (err) {
-        res.status(400).send({ error: 'registration failed' });
-      } else {
-        console.log('added successfully');
-        res.status(201).send({ message: 'registered' });
-      }
-    });
+    const { _id } = await doc.save();
+    const accessToken = generateAccessToken({ _id });
+    res.status(201).send({ accessToken });
   } catch (error) {
-    console.log('error with login');
-    res.sendStatus(500); //TODO: add object
+    res.status(400).send({ error, message: 'unable to register' });
   }
-}
+};
 
-async function updDate(req, res) {
+const login = async (req, res) => {
+  const { email, password } = req.body;
   try {
-    console.log(req.body.date);
+    const user = await User.findOne({ email: email });
+    const validatedPass = await bcrypt.compare(password, user.password);
+    if (!validatedPass) throw new Error();
+    const accessToken = generateAccessToken({ _id: user._id });
+    res.status(200).send({ accessToken });
+  } catch (error) {
+    res
+      .status(401)
+      .send({ error: '401', message: 'Username or password is incorrect' });
+  }
+};
+
+const updDate = async (req, res) => {
+  try {
     await User.findOneAndUpdate(
-      { _id: req.body.id },
+      { _id: req.user.id },
       { dueDate: req.body.date },
       { upsert: true }
     );
     res.status(200).send({ message: 'due date added' });
   } catch (error) {
     console.log('error with updDate');
-    res.status(500).send({ error: 'error with due date' });
+    res.status(500).send({ error: 'error' });
   }
-}
+};
 
-async function addApt(req, res) {
+const addApt = async (req, res) => {
   try {
     const apt = { title: req.body.title, date: req.body.date };
     await User.findOneAndUpdate(
-      { _id: req.body.id },
+      { _id: req.user.id },
       {
         $push: { appointments: apt },
       },
@@ -63,15 +80,15 @@ async function addApt(req, res) {
     res.status(200).send({ message: 'added' });
   } catch (error) {
     console.log('error with addApt');
-    res.sendStatus(500);
+    res.status(500).send({ error: 'error' });
   }
-}
+};
 
-async function delApt(req, res) {
+const delApt = async (req, res) => {
   try {
     const apt = { title: req.body.title, date: req.body.date };
     await User.findOneAndUpdate(
-      { _id: req.body.id },
+      { _id: req.user.id },
       {
         $pull: { appointments: apt },
       }
@@ -81,6 +98,6 @@ async function delApt(req, res) {
     console.log('error with delApt');
     res.status(500).send({ error: 'error' });
   }
-}
+};
 
-module.exports = { getUser, register, addApt, delApt, updDate };
+module.exports = { getUser, register, addApt, delApt, updDate, login };

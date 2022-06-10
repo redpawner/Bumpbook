@@ -1,4 +1,4 @@
-import { register, getUser } from '../services/api-client';
+import { register, getUser, login } from '../services/api-client';
 import useUserStore from '../states/user';
 import './css/landing.css';
 
@@ -20,7 +20,34 @@ const Landing = () => {
         if (response.error) {
           alert(`${response.message}`);
         } else {
-          getUser({ email: newUser.email })
+          const { accessToken } = response;
+          localStorage.setItem('accessToken', accessToken);
+          getUser(accessToken)
+            .then((res) => update(res))
+            .then(() => authorise())
+            .catch((err) => console.log(err));
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
+  const submitLogin = (event) => {
+    event.preventDefault();
+    const user = {
+      email: event.target.email.value,
+      password: event.target.password.value,
+    };
+
+    login(user)
+      .then((response) => {
+        if (response.error) {
+          alert(`${response.message}`);
+        } else {
+          const { accessToken } = response;
+          localStorage.setItem('accessToken', accessToken);
+          getUser(accessToken)
             .then((res) => update(res))
             .then(() => authorise())
             .catch((err) => console.log(err));
@@ -74,7 +101,7 @@ const Landing = () => {
         <div className="formHeader">
           <h2 className="formtitle">Login</h2>
         </div>
-        <form className="login">
+        <form className="login" onSubmit={submitLogin}>
           <label htmlFor="email2">Email</label>
           <input
             placeholder="superhuman@bump.com"

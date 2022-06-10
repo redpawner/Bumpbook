@@ -1,19 +1,21 @@
 const baseUrl = 'http://localhost:3001';
 
-export function getUser(email) {
+export const getUser = (accessToken) => {
   const options = {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(email),
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${accessToken}`,
+    },
   };
   return fetch(baseUrl + '/user', options)
     .then((res) => res.json())
     .catch((error) => {
       console.log(error);
     });
-}
+};
 
-export function register(newUser) {
+export const register = (newUser) => {
   const options = {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
@@ -24,12 +26,28 @@ export function register(newUser) {
     .catch((error) => {
       console.log(error);
     });
-}
+};
 
-export function updDate(date) {
+export const login = (user) => {
   const options = {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(user),
+  };
+  return fetch(baseUrl + '/login', options)
+    .then((res) => res.json())
+    .catch((error) => {
+      console.log(error);
+    });
+};
+
+export const updDate = (date, accessToken) => {
+  const options = {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${accessToken}`,
+    },
     body: JSON.stringify(date),
   };
   return fetch(baseUrl + '/date', options)
@@ -37,12 +55,15 @@ export function updDate(date) {
     .catch((error) => {
       console.log(error);
     });
-}
+};
 
-export function addApt(apt) {
+export const addApt = (apt, accessToken) => {
   const options = {
     method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${accessToken}`,
+    },
     body: JSON.stringify(apt),
   };
   return fetch(baseUrl + '/appointment', options)
@@ -50,12 +71,15 @@ export function addApt(apt) {
     .catch((error) => {
       console.log(error);
     });
-}
+};
 
-export function delApt(aptId) {
+export const delApt = (aptId, accessToken) => {
   const options = {
     method: 'DELETE',
-    headers: { 'Content-Type': 'application/json' },
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${accessToken}`,
+    },
     body: JSON.stringify(aptId),
   };
   return fetch(baseUrl + '/appointment', options)
@@ -63,6 +87,6 @@ export function delApt(aptId) {
     .catch((error) => {
       console.log(error);
     });
-}
+};
 
 // updApt

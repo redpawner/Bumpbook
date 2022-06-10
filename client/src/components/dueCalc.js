@@ -4,9 +4,7 @@ import useUserStore from '../states/user';
 import { updDate, addApt } from '../services/api-client';
 
 const DueCalc = ({ show, close }) => {
-  const id = useUserStore((state) => {
-    return state.user._id;
-  });
+  const accessToken = localStorage.getItem('accessToken');
   const updateDate = useUserStore((state) => {
     return state.updateDate;
   });
@@ -39,20 +37,16 @@ const DueCalc = ({ show, close }) => {
     dueDate.setYear(dueDate.getFullYear() + 1);
     dueDate.setDate(dueDate.getDate() + 7);
 
-    updDate({ date: dueDate, id: id }).catch((err) => console.log(err));
+    updDate({ date: dueDate }, accessToken).catch((err) => console.log(err));
     updateDate(dueDate);
     setShowDate(true);
 
     const newApt = {
       title: 'Baby Incoming!',
       date: dueDate,
-      id: id,
     };
-    addApt(newApt).catch((err) => console.log(err));
-    const newAppointments = [
-      ...appointments,
-      { title: newApt.title, date: newApt.date },
-    ];
+    addApt(newApt, accessToken).catch((err) => console.log(err));
+    const newAppointments = [...appointments, newApt];
     updateAppointments(newAppointments);
     event.target.reset();
   };

@@ -1,10 +1,19 @@
 const router = require('express').Router();
-const { getUser, register, addApt, delApt, updDate } = require('./controllers');
+const authMiddleware = require('./middleware/auth');
+const {
+  getUser,
+  register,
+  addApt,
+  delApt,
+  updDate,
+  login,
+} = require('./controllers');
 
-router.post('/user', getUser);
+router.get('/user', authMiddleware, getUser);
 router.post('/register', register);
-router.post('/appointment', addApt);
-router.post('/date', updDate);
-router.delete('/appointment', delApt);
+router.post('/login', login);
+router.post('/appointment', authMiddleware, addApt);
+router.post('/date', authMiddleware, updDate);
+router.delete('/appointment', authMiddleware, delApt);
 
 module.exports = router;

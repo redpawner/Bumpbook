@@ -5,22 +5,18 @@ import Appointment from './appointment';
 import './css/schedule.css';
 
 const Schedule = () => {
+  const accessToken = localStorage.getItem('accessToken');
   const appointments = useUserStore((state) => {
     return state.user.appointments;
-  });
-  const id = useUserStore((state) => {
-    return state.user._id;
   });
   const updateAppointments = useUserStore((state) => {
     return state.updateAppointments;
   });
 
   const deleteApt = (aptInfo) => {
-    const del = { ...aptInfo, id };
-    console.log(del);
-    delApt(del);
+    const del = { ...aptInfo };
+    delApt(del, accessToken).catch((err) => console.log(err));
     const newAppointments = [...appointments].filter((e) => e !== aptInfo);
-    console.log(newAppointments);
     updateAppointments(newAppointments);
   };
 
@@ -47,17 +43,13 @@ const Schedule = () => {
 
   const submitApt = (event) => {
     event.preventDefault();
-    console.log(id);
+
     const newApt = {
       title: event.target.title.value,
       date: event.target.date.value,
-      id: id,
     };
-    addApt(newApt).catch((err) => console.log(err));
-    const newAppointments = [
-      ...appointments,
-      { title: newApt.title, date: newApt.date },
-    ];
+    addApt(newApt, accessToken).catch((err) => console.log(err));
+    const newAppointments = [...appointments, newApt];
     updateAppointments(newAppointments);
     event.target.reset();
   };
