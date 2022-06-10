@@ -1,0 +1,8 @@
+.reelContainer {
+  margin: 3em;
+  height: 35vh;
+  background-color: white;
+  display: flex;
+  border-radius: 15px;
+  overflow: hidden;
+}

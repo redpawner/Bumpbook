@@ -41,6 +41,24 @@ export const login = (user) => {
     });
 };
 
+//TODO: ADD LOGOUT
+
+export const logout = (tokenName) => {
+  localStorage.removeItem(tokenName);
+  // const options = {
+  //   method: 'POST',
+  //   headers: {
+  //     'Content-Type': 'application/json',
+  //     Authorization: `Bearer ${accessToken}`,
+  //   },
+  // };
+  // return fetch(baseUrl + '/login', options)
+  //   .then((res) => res.json())
+  //   .catch((error) => {
+  //     console.log(error);
+  //   });
+};
+
 export const updDate = (date, accessToken) => {
   const options = {
     method: 'POST',
@@ -90,3 +108,20 @@ export const delApt = (aptId, accessToken) => {
 };
 
 // updApt
+
+export const addPicture = (pic, accessToken) => {
+  const options = {
+    method: 'POST',
+    headers: {
+      Authorization: `Bearer ${accessToken}`,
+    },
+    body: pic,
+  };
+  return fetch(baseUrl + '/pictures', options)
+    .then((res) => res.json())
+    .catch((error) => {
+      console.log(error);
+    });
+};
+
+//post picture

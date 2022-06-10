@@ -15,8 +15,10 @@ const Dashboard = () => {
       {isAuthenticated ? (
         <div className="homeContainer">
           <Schedule />
-          <Infobar />
-          <Picturereel />
+          <div className="infoReelContainer">
+            <Infobar />
+            <Picturereel />
+          </div>
         </div>
       ) : (
         <Landing />
