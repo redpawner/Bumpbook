@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Picture = ({ image }) => {
+const Picture = () => {
   return <img src=""></img>;
 };
 

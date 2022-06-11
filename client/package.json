@@ -23,9 +23,7 @@
       "react-app",
       "react-app/jest"
     ],
-    "rules": {
-      "additional-rule": "warn"
-    }
+    "rules": {}
   },
   "browserslist": {
     "production": [
