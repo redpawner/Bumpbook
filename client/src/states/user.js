@@ -24,13 +24,22 @@ const useUserStore = create((set) => ({
       },
     }));
   },
-  updateAppointments: (apt) =>
+  updateAppointments: (apt) => {
     set((state) => ({
       user: {
         ...state.user,
         appointments: apt,
       },
-    })),
+    }));
+  },
+  updatePictures: (pic) => {
+    set((state) => ({
+      user: {
+        ...state.user,
+        pictures: pic,
+      },
+    }));
+  },
 }));
 
 export default useUserStore;

@@ -124,4 +124,22 @@ export const addPicture = (pic, accessToken) => {
     });
 };
 
+export const getPic = (url, accessToken) => {
+  const options = {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${accessToken}`,
+    },
+    body: JSON.stringify(url),
+  };
+  return fetch(baseUrl + '/getpictures', options)
+    .then((res) => res.blob())
+    .then((res) => {
+      return URL.createObjectURL(res);
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+};
 //post picture

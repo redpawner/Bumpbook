@@ -4,5 +4,24 @@
   background-color: white;
   display: flex;
   border-radius: 15px;
-  overflow: hidden;
+  align-items: center;
+  padding-left: 10px;
+  padding-right: 10px;
+  overflow: scroll;
+}
+
+.reel {
+  box-sizing: border-box;
+  position: relative;
+  border-radius: 15px;
+  align-items: center;
+  border: 3px solid var(--p-dark);
+  display: flex;
+  overflow: scroll;
+}
+
+.reel::-webkit-scrollbar {
+  display: none;
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
 }

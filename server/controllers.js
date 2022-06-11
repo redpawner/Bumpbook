@@ -1,7 +1,9 @@
 const User = require('./models/schema');
 const bcrypt = require('bcrypt');
+const path = require('path');
 const jwt = require('jsonwebtoken');
 const SECRET_KEY = process.env.SECRET_KEY || 'th1515n0tv3rys3cur3';
+const express = require('express');
 
 const generateAccessToken = (id) => {
   return jwt.sign(id, SECRET_KEY, { expiresIn: '1800s' });
@@ -11,6 +13,7 @@ const getUser = async (req, res) => {
   try {
     const id = req.user.id;
     const response = await User.findOne({ _id: id }, { __v: 0 });
+
     res.status(201).send(response);
   } catch (error) {
     console.log(error);
@@ -110,25 +113,21 @@ const uploadImage = async (req, res) => {
       },
       { upsert: true }
     );
-    res.status(200).send({ message: 'image uploaded' });
+    res.status(200).send(pic);
   } catch (error) {
     res.status(500).send({ error: 'error' });
   }
 };
 
-// const getPictures = async (req, res) => {
-//   try {
-//     const id = req.user.id;
-//     const response = await User.findById({ _id: id }).select({
-//       pictures: 1,
-//       _id: 0,
-//     });
-//     res.status(201).send(response);
-//   } catch (error) {
-//     console.log('error with getUser');
-//     res.status(500).send({ error: 'error' });
-//   }
-// };
+const getPictures = async (req, res) => {
+  try {
+    const url = '/' + req.body.url;
+    res.sendFile(url, { root: __dirname });
+  } catch (error) {
+    console.log('error with getUser');
+    res.status(500).send({ error: 'error' });
+  }
+};
 
 module.exports = {
   getUser,
@@ -138,5 +137,5 @@ module.exports = {
   updDate,
   login,
   uploadImage,
-  // getPictures,
+  getPictures,
 };
