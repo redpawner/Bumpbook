@@ -12,7 +12,7 @@ const Picturereel = () => {
 
   const showPictures = pictures
     .sort((a, b) => {
-      return new Date(a.date) + new Date(b.date);
+      return new Date(a.date) - new Date(b.date);
     })
     .map((pic) => {
       return (
