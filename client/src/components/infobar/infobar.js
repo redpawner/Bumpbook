@@ -1,10 +1,14 @@
 import './infobar.css';
 import useUserStore from '../../states/user';
+import { useState } from 'react';
+import DueCalc from '../dueCalc';
 
 const Infobar = () => {
   const dueDate = useUserStore((state) => {
     return state.user.dueDate;
   });
+  const [showDDC, setshowDDC] = useState(false);
+
   const prettyDate = new Date(dueDate).toLocaleDateString('en-gb', {
     weekday: 'long',
     year: 'numeric',
@@ -31,6 +35,19 @@ const Infobar = () => {
   return (
     <div className="infoContainer">
       <div className="countdownContainer">
+        <button
+          onClick={() => {
+            setshowDDC(true);
+          }}
+        >
+          Due Date Calculator
+        </button>
+        <DueCalc
+          show={showDDC}
+          close={() => {
+            setshowDDC(false);
+          }}
+        />
         <h2>Due Date Countdown</h2>
         {dueDate ? (
           <div>
