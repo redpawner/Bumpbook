@@ -13,11 +13,24 @@ const Dashboard = () => {
   return (
     <div className="dashboard">
       {isAuthenticated ? (
-        <div className="homeContainer">
-          <Schedule />
-          <div className="infoReelContainer">
-            <Infobar />
-            <Picturereel />
+        <div className="mainContainer">
+          <div className="leftContainer">
+            <div className="topbarleft">
+              <div className="logo"></div>
+            </div>
+            <div className="bottombarleft">
+              <Schedule />
+            </div>
+          </div>
+          <div className="rightContainer">
+            <div className="topbar">
+              <Infobar />
+              <Infobar />
+              <Infobar />
+            </div>
+            <div className="bottombar">
+              <Picturereel />
+            </div>
           </div>
         </div>
       ) : (

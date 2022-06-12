@@ -1,8 +1,12 @@
 /* palette colours */
 
 :root {
-  --primary: #dff6f9;
-  --p-dark: #adc3c6;
+  /* --primary: #dff6f9; */
+  /* --p-dark: #adc3c6; */
+  --p-dark: #e3866e;
+  --primary: #fff7e4;
+  --font: #692116;
+  --secondary: #ffe1b4;
 }
 
 body {
@@ -11,7 +15,8 @@ body {
   margin: 0;
   padding: 0;
   background-color: var(--primary);
-  font-family: 'Pacifico', cursive;
+  font-family: 'Belgrano', serif;
+  color: var(--font);
 }
 
 html {
@@ -20,7 +25,22 @@ html {
 
 button {
   font-weight: bold;
-  font-family: sans-serif;
   border: 0px;
   border-radius: 10px;
+  color: var(--font);
+  font-family: 'Belgrano', serif;
+}
+
+input {
+  background-color: var(--primary);
+  border-radius: 5px;
+  font-size: larger;
+  border: 0px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  padding: 5% 10% 10% 10%;
+  font-size: larger;
 }

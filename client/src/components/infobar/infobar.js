@@ -60,7 +60,7 @@ const Infobar = () => {
           </div>
         )}
       </div>
-      <div className="schFooter"></div>
+      <div className="infoFooter"></div>
     </div>
   );
 };

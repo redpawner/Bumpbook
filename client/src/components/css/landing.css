@@ -11,7 +11,7 @@
   box-sizing: border-box;
   overflow: hidden;
   box-sizing: border-box;
-  background-color: white;
+  background-color: var(--secondary);
   border-radius: 15px;
   display: flex;
   flex-direction: column;
@@ -25,7 +25,7 @@
   width: 100%;
   background-color: var(--p-dark);
 }
-.logo {
+.logoL {
   height: 30vh;
   width: 30vh;
   background-color: white;
@@ -40,27 +40,20 @@
   margin-top: 2vh;
 }
 
-form {
-  display: flex;
-  flex-direction: column;
-  padding: 5% 10% 10% 10%;
-  font-size: larger;
-}
-
 input {
   height: 4vh;
   margin-top: 1vh;
   margin-bottom: 1vh;
-  font-size: larger;
+  padding-left: 5px;
 }
 
 .landing-btn {
   height: 9vh;
   background-color: var(--p-dark);
-  font-size: 30px;
+  font-size: 25px;
   font-weight: bold;
-  font-family: sans-serif;
   border: 0px;
+  color: var(--font);
   margin-top: 2vh;
   margin-bottom: 1vh;
   border-radius: 10px;

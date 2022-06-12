@@ -1,35 +1,52 @@
 .schContainer {
-  margin: 3em;
-  height: 80vh;
-  width: 20vw;
-  background-color: white;
+  background-color: var(--secondary);
   display: flex;
+  height: 100%;
+  width: 100%;
   flex-direction: column;
   border-radius: 15px;
   overflow: hidden;
+}
+
+.schHeader {
+  background-color: var(--p-dark);
+  height: 15%;
+}
+
+.schHeader h2 {
+  text-align: center;
 }
 
 .aptContainer {
   display: grid;
   grid-auto-rows: auto;
   overflow: scroll;
-  height: 80%;
 }
 
 .schFooter {
-  background-color: var(--p-dark);
+  background-color: var(--secondary);
   box-sizing: border-box;
+  height: 40%;
+  overflow: none;
 }
 
-.schFooter input {
-  height: 4vh;
+.schFooter label {
   font-size: large;
 }
 
-.submit {
+.schFooter form {
+  display: flex;
+  flex-direction: column;
+  padding: 0% 5% 5% 5%;
+}
+
+.schFooter input {
+  font-size: large;
+}
+
+.aptSubmit {
   font-size: larger;
-  background-color: var(--primary);
-  height: 6vh;
-  padding: 0px;
-  margin-bottom: 0px;
+  margin-top: 10px;
+  background-color: var(--p-dark);
+  padding: 10px;
 }

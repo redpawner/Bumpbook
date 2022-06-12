@@ -56,12 +56,15 @@ const Schedule = () => {
 
   return (
     <div className="schContainer">
+      <div className="schHeader">
+        <h2>Your Appointments</h2>
+      </div>
       <div className="aptContainer">
         <div>{listAppointments}</div>
       </div>
       <div className="schFooter">
         <form onSubmit={submitApt}>
-          <label htmlFor="title">Title</label>
+          <label htmlFor="title">Appointment name:</label>
           <input
             placeholder="First scan!"
             type="text"
@@ -69,7 +72,7 @@ const Schedule = () => {
             name="name"
             required
           />
-          <label htmlFor="date">Date and Time</label>
+          <label htmlFor="date">Date and time:</label>
           <input
             type="datetime-local"
             name="date"
@@ -77,8 +80,8 @@ const Schedule = () => {
             min={new Date().toISOString().slice(0, 16)}
             required
           />
-          <button className="submit" type="submit">
-            Add new event
+          <button className="aptSubmit" type="submit">
+            Add appointment
           </button>
         </form>
       </div>

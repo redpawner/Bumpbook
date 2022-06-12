@@ -96,7 +96,7 @@ const Landing = () => {
           </button>
         </form>
       </div>
-      <div className="logo"></div>
+      <div className="logoL"></div>
       <div className="formContainer">
         <div className="formHeader">
           <h2 className="formtitle">Login</h2>
