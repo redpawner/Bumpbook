@@ -24,23 +24,27 @@ const Picturereel = () => {
 
   return (
     <div className="reelContainer">
-      <div className="reel">{showPictures}</div>
-      <div className="uploadButton">
-        {' '}
-        <button
-          onClick={() => {
-            setshowPU(true);
-          }}
-        >
-          Upload Pic
-        </button>
-        <PictureUpload
-          show={showPU}
-          close={() => {
-            setshowPU(false);
-          }}
-        />
+      <div className="reelHeader">
+        <h2>Bumpreel</h2>{' '}
+        <div className="uploadButton">
+          {' '}
+          <button
+            onClick={() => {
+              setshowPU(true);
+            }}
+          >
+            Upload Pic
+          </button>
+          <PictureUpload
+            show={showPU}
+            close={() => {
+              setshowPU(false);
+            }}
+          />
+        </div>
       </div>
+
+      <div className="reel">{showPictures}</div>
     </div>
   );
 };

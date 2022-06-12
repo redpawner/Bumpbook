@@ -1,12 +1,20 @@
 .reelContainer {
   background-color: var(--secondary);
   display: flex;
+  flex-direction: column;
   width: 100%;
   border-radius: 15px;
   align-items: center;
-  padding-left: 10px;
-  padding-right: 10px;
   overflow: scroll;
+}
+
+.reelHeader {
+  background-color: var(--p-dark);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 15%;
+  width: 100%;
 }
 
 .reel {
@@ -14,7 +22,6 @@
   position: relative;
   border-radius: 15px;
   align-items: center;
-  border: 3px solid var(--p-dark);
   display: flex;
   overflow: scroll;
 }

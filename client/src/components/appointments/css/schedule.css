@@ -10,7 +10,7 @@
 
 .schHeader {
   background-color: var(--p-dark);
-  height: 15%;
+  height: 10%;
 }
 
 .schHeader h2 {
@@ -21,6 +21,7 @@
   display: grid;
   grid-auto-rows: auto;
   overflow: scroll;
+  height: 80%;
 }
 
 .schFooter {

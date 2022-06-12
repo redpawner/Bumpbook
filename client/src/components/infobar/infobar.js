@@ -34,7 +34,22 @@ const Infobar = () => {
 
   return (
     <div className="infoContainer">
-      <div className="countdownContainer">
+      <div className="infoHeader">
+        <h2>Due Date Countdown</h2>
+      </div>
+      <div className="infoMain">
+        {dueDate ? (
+          <div>
+            {countdown}
+            {prettyDate}
+          </div>
+        ) : (
+          <div>
+            <p>Use due date calculator to initiate the countdown!</p>
+          </div>
+        )}
+      </div>
+      <div className="infoFooter">
         <button
           onClick={() => {
             setshowDDC(true);
@@ -48,19 +63,7 @@ const Infobar = () => {
             setshowDDC(false);
           }}
         />
-        <h2>Due Date Countdown</h2>
-        {dueDate ? (
-          <div>
-            {countdown}
-            {prettyDate}
-          </div>
-        ) : (
-          <div>
-            <p>Use due date calculator to initiate the countdown!</p>
-          </div>
-        )}
       </div>
-      <div className="infoFooter"></div>
     </div>
   );
 };

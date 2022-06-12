@@ -71,6 +71,7 @@ const Landing = () => {
             type="text"
             id="email"
             name="email"
+            autocomplete="off"
             required
           />
           <label htmlFor="firstName">First Name</label>
@@ -79,6 +80,7 @@ const Landing = () => {
             type="text"
             id="firstName"
             name="firstName"
+            autocomplete="off"
             required
           />
           <label htmlFor="lastName">Last Name</label>
@@ -87,16 +89,23 @@ const Landing = () => {
             type="text"
             id="lastName"
             name="lastName"
+            autocomplete="off"
             required
           />
           <label htmlFor="password">Password</label>
-          <input placeholder="********" name="password" required />
+          <input
+            placeholder="********"
+            name="password"
+            id="password"
+            required
+            autocomplete="off"
+          />
           <button type="submit" className="landing-btn">
             Create account
           </button>
         </form>
       </div>
-      <div className="logoL"></div>
+      <div className="logoL" role="img" alt="Bumpbook logo"></div>
       <div className="formContainer">
         <div className="formHeader">
           <h2 className="formtitle">Login</h2>
@@ -108,6 +117,8 @@ const Landing = () => {
             type="text"
             id="email2"
             name="email"
+            autocomplete="off"
+            autoFocus="on"
             required
           />
           <label htmlFor="password2">Password</label>
@@ -115,6 +126,7 @@ const Landing = () => {
             placeholder="********"
             id="password2"
             name="password"
+            autocomplete="off"
             required
           />
           <button className="landing-btn" type="submit">

@@ -70,6 +70,7 @@ const Schedule = () => {
             type="text"
             id="title"
             name="name"
+            autoComplete="off"
             required
           />
           <label htmlFor="date">Date and time:</label>
@@ -77,6 +78,7 @@ const Schedule = () => {
             type="datetime-local"
             name="date"
             id="date"
+            autoComplete="off"
             min={new Date().toISOString().slice(0, 16)}
             required
           />

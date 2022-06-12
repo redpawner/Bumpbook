@@ -1,4 +1,4 @@
-.infoContainer {
+.ngContainer {
   height: 100%;
   width: 100%;
   margin-right: 1em;
@@ -9,7 +9,7 @@
   overflow: hidden;
 }
 
-.infoHeader {
+.ngHeader {
   background-color: var(--p-dark);
   display: flex;
   justify-content: center;
@@ -17,11 +17,6 @@
   height: 15%;
 }
 
-.infoMain {
-  height: 75%;
-}
-
-.infoFooter {
-  height: 10%;
+.ngFooter {
   box-sizing: border-box;
 }
