@@ -39,6 +39,7 @@ const PictureUpload = ({ show, close }) => {
   };
 
   const handleFileChange = (e) => {
+    e.preventDefault();
     const img = {
       preview: URL.createObjectURL(e.target.files[0]),
       data: e.target.files[0],

@@ -71,6 +71,7 @@ const Schedule = () => {
             id="title"
             name="name"
             autoComplete="off"
+            min={new Date()}
             required
           />
           <label htmlFor="date">Date and time:</label>

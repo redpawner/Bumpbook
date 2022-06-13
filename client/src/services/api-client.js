@@ -41,22 +41,8 @@ export const login = (user) => {
     });
 };
 
-//TODO: ADD LOGOUT
-
 export const logout = (tokenName) => {
   localStorage.removeItem(tokenName);
-  // const options = {
-  //   method: 'POST',
-  //   headers: {
-  //     'Content-Type': 'application/json',
-  //     Authorization: `Bearer ${accessToken}`,
-  //   },
-  // };
-  // return fetch(baseUrl + '/login', options)
-  //   .then((res) => res.json())
-  //   .catch((error) => {
-  //     console.log(error);
-  //   });
 };
 
 export const updDate = (date, accessToken) => {
@@ -150,7 +136,7 @@ export const addName = (name, accessToken) => {
     },
     body: JSON.stringify(name),
   };
-  return fetch(baseUrl + '/appointment', options)
+  return fetch(baseUrl + '/name', options)
     .then((res) => res.json())
     .catch((error) => {
       console.log(error);
@@ -167,6 +153,22 @@ export const delName = (name, accessToken) => {
     body: JSON.stringify(name),
   };
   return fetch(baseUrl + '/name', options)
+    .then((res) => res.json())
+    .catch((error) => {
+      console.log(error);
+    });
+};
+
+export const genName = (sex, accessToken) => {
+  const options = {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${accessToken}`,
+    },
+    body: JSON.stringify(sex),
+  };
+  return fetch(baseUrl + '/getname', options)
     .then((res) => res.json())
     .catch((error) => {
       console.log(error);

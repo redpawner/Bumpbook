@@ -53,6 +53,22 @@ const DueCalc = ({ show, setShow, close }) => {
       setShow(false);
     }, 3000);
   };
+  const minDate = () => {
+    let today = new Date();
+    let dd = today.getDate();
+    let mm = today.getMonth() + 1;
+    let yyyy = today.getFullYear();
+    if (dd < 10) {
+      dd = '0' + dd;
+    }
+    if (mm < 10) {
+      mm = '0' + mm;
+    }
+    today = yyyy + '-' + mm + '-' + dd;
+    return today;
+  };
+
+  const min = minDate();
 
   const submitDueDate = (event) => {
     event.preventDefault();
@@ -97,7 +113,7 @@ const DueCalc = ({ show, setShow, close }) => {
             <label htmlFor="mandate">
               Manually select or update the due date:
             </label>
-            <input type="date" name="mandate" id="mandate" required />
+            <input type="date" name="mandate" id="mandate" min={min} required />
             <button className="ddcsubmit" type="submit">
               Set Due Date
             </button>
