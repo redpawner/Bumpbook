@@ -7,6 +7,7 @@ const {
   register,
   addApt,
   delApt,
+  genName,
   addName,
   delName,
   updDate,
@@ -22,6 +23,7 @@ router.post('/appointment', authMiddleware, addApt);
 router.delete('/appointment', authMiddleware, delApt);
 router.post('/name', authMiddleware, addName);
 router.delete('/name', authMiddleware, delName);
+router.post('/getname', authMiddleware, genName);
 router.post('/date', authMiddleware, updDate);
 router.post(
   '/pictures',

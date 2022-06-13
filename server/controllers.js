@@ -1,9 +1,10 @@
 const User = require('./models/schema');
 const bcrypt = require('bcrypt');
-const path = require('path');
 const jwt = require('jsonwebtoken');
 const SECRET_KEY = process.env.SECRET_KEY || 'th1515n0tv3rys3cur3';
-const express = require('express');
+const XK = process.env.XK;
+const XH = process.env.XH;
+const fetcher = require('node-fetch');
 
 const generateAccessToken = (id) => {
   return jwt.sign(id, SECRET_KEY, { expiresIn: '1800s' });
@@ -88,6 +89,7 @@ const addApt = async (req, res) => {
 };
 
 const delApt = async (req, res) => {
+  console.log(XH);
   try {
     const apt = { title: req.body.title, date: req.body.date };
     await User.findOneAndUpdate(
@@ -139,7 +141,7 @@ const addName = async (req, res) => {
       },
       { upsert: true }
     );
-    res.status(200).send(fav);
+    res.status(200).send({ message: 'favourited' });
   } catch (error) {
     console.log('error with addName');
     res.status(500).send({ error: 'error' });
@@ -162,9 +164,32 @@ const delName = async (req, res) => {
   }
 };
 
+const genName = async (req, res) => {
+  try {
+    const options = {
+      method: 'GET',
+      headers: {
+        'X-RapidAPI-Key': XK,
+        'X-RapidAPI-Host': XH,
+      },
+    };
+    const url =
+      'https://baby-random-first-name.p.rapidapi.com/random_' +
+      req.body.sex +
+      '?origin=American';
+    const response = await fetcher(url, options);
+    const data = await response.text();
+    res.status(200).send({ name: data });
+  } catch (error) {
+    console.log('error with genName');
+    res.status(500).send({ error: 'error' });
+  }
+};
+
 module.exports = {
   addName,
   delName,
+  genName,
   getUser,
   register,
   addApt,
