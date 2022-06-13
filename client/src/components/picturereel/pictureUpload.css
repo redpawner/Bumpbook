@@ -1,4 +1,4 @@
-.modal-container {
+.pu-container {
   position: fixed;
   left: 0;
   top: 0;
@@ -13,65 +13,83 @@
   pointer-events: none;
 }
 
-.modal-container.show {
+.pu-container.show {
   opacity: 1;
   pointer-events: visible;
 }
 
-.modal-content {
-  width: 500px;
-  background-color: white;
-  transform: translateY(-200px);
+.pu-content {
+  width: 30vw;
+  background-color: var(--secondary);
+  transform: translateX(200px);
   transition: all 0.3s ease-in-out;
   border-radius: 25px;
-  border: solid var(--p-dark) 2px;
+  overflow: hidden;
 }
 
-.modal-container.show .modal-content {
+.pu-container.show .pu-content {
   transform: translateY(0);
 }
 
-.modal-header,
+.pu-header,
 .modal-footer {
   padding: 10px;
+  text-align: center;
 }
 
-.modal-header {
+.pu-header {
   display: flex;
+  height: 4vh;
   align-items: center;
   justify-content: space-between;
+  background-color: var(--p-dark);
 }
 
-.psubmit {
-  background-color: rgb(213, 129, 190);
+.pu-btn {
+  height: 2vh;
+  font-size: small;
+  font-weight: bold;
+  font-size: 10px;
+  font-family: sans-serif;
+  background-color: var(--primary);
+  border: 0px;
+  border-radius: 10px;
+}
+
+.pu-title {
+  margin-left: 5%;
+}
+
+.pu-body {
+  padding: 10px;
+  border-bottom: 1px solid var(--p-dark);
+  display: flex;
+  flex-direction: column;
+}
+
+.pu-body h2 {
+  align-self: center;
+  margin-bottom: 0px;
+}
+
+.pu-body form {
+  padding-bottom: 20px;
+}
+.pu-body label {
+  margin-bottom: 5px;
+}
+
+.puSubmit {
+  background-color: var(--p-dark);
   font-weight: bold;
   font-size: 20px;
   font-family: sans-serif;
   height: 6vh;
   border: 0px;
   margin-top: 2vh;
-  margin-bottom: 1vh;
   border-radius: 10px;
+  margin-bottom: 0px;
 }
-
-.modal-btn {
-  align-self: flex-start;
-  height: 2vh;
-  font-size: small;
-  font-weight: bold;
-  font-size: 10px;
-  font-family: sans-serif;
-
-  border: 0px;
-  border-radius: 10px;
-}
-
-.modal-title {
-  margin: 0;
-}
-
-.modal-body {
-  padding: 10px;
-  border-top: 1px solid var(--p-dark);
-  border-bottom: 1px solid var(--p-dark);
+.preview {
+  align-self: center;
 }

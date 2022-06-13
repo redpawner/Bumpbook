@@ -1,11 +1,10 @@
 /* palette colours */
 
 :root {
-  /* --primary: #dff6f9; */
-  /* --p-dark: #adc3c6; */
   --p-dark: #e3866e;
   --primary: #fff7e4;
-  --font: #692116;
+  /* --font: #692116; */
+  --font: #320d07;
   --secondary: #ffe1b4;
 }
 
@@ -26,7 +25,7 @@ html {
 button {
   font-weight: bold;
   border: 0px;
-  border-radius: 10px;
+  border-radius: 5px;
   color: var(--font);
   font-family: 'Belgrano', serif;
 }

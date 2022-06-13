@@ -107,8 +107,6 @@ export const delApt = (aptId, accessToken) => {
     });
 };
 
-// updApt
-
 export const addPicture = (pic, accessToken) => {
   const options = {
     method: 'POST',
@@ -142,4 +140,35 @@ export const getPic = (url, accessToken) => {
       console.log(error);
     });
 };
-//post picture
+
+export const addName = (name, accessToken) => {
+  const options = {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${accessToken}`,
+    },
+    body: JSON.stringify(name),
+  };
+  return fetch(baseUrl + '/appointment', options)
+    .then((res) => res.json())
+    .catch((error) => {
+      console.log(error);
+    });
+};
+
+export const delName = (name, accessToken) => {
+  const options = {
+    method: 'DELETE',
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${accessToken}`,
+    },
+    body: JSON.stringify(name),
+  };
+  return fetch(baseUrl + '/name', options)
+    .then((res) => res.json())
+    .catch((error) => {
+      console.log(error);
+    });
+};

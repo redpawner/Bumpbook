@@ -32,6 +32,14 @@ const useUserStore = create((set) => ({
       },
     }));
   },
+  updateFavNames: (name) => {
+    set((state) => ({
+      user: {
+        ...state.user,
+        favNames: name,
+      },
+    }));
+  },
   updatePictures: (pic) => {
     set((state) => ({
       user: {

@@ -7,6 +7,8 @@ const {
   register,
   addApt,
   delApt,
+  addName,
+  delName,
   updDate,
   login,
   uploadImage,
@@ -17,8 +19,10 @@ router.get('/user', authMiddleware, getUser);
 router.post('/register', register);
 router.post('/login', login);
 router.post('/appointment', authMiddleware, addApt);
-router.post('/date', authMiddleware, updDate);
 router.delete('/appointment', authMiddleware, delApt);
+router.post('/name', authMiddleware, addName);
+router.delete('/name', authMiddleware, delName);
+router.post('/date', authMiddleware, updDate);
 router.post(
   '/pictures',
   authMiddleware,

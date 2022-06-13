@@ -129,7 +129,42 @@ const getPictures = async (req, res) => {
   }
 };
 
+const addName = async (req, res) => {
+  try {
+    const fav = { name: req.body.name, sex: req.body.sex };
+    await User.findOneAndUpdate(
+      { _id: req.user.id },
+      {
+        $push: { favNames: fav },
+      },
+      { upsert: true }
+    );
+    res.status(200).send(fav);
+  } catch (error) {
+    console.log('error with addName');
+    res.status(500).send({ error: 'error' });
+  }
+};
+
+const delName = async (req, res) => {
+  try {
+    const fav = { name: req.body.name, sex: req.body.sex };
+    await User.findOneAndUpdate(
+      { _id: req.user.id },
+      {
+        $pull: { favNames: fav },
+      }
+    ),
+      res.status(200).send({ message: 'deleted' });
+  } catch (error) {
+    console.log('error with delName');
+    res.status(500).send({ error: 'error' });
+  }
+};
+
 module.exports = {
+  addName,
+  delName,
   getUser,
   register,
   addApt,

@@ -4,7 +4,7 @@
   height: 100%;
   width: 100%;
   flex-direction: column;
-  border-radius: 15px;
+  border-radius: 1% 0% / 10% 1%;
   overflow: hidden;
 }
 
@@ -28,6 +28,7 @@
   background-color: var(--secondary);
   box-sizing: border-box;
   height: 40%;
+  margin-top: 10px;
   overflow: none;
 }
 

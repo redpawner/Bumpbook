@@ -15,7 +15,11 @@ const Picture = ({ picInfo }) => {
     getPic(url, accessToken).then((res) => setImg(res));
   }, []);
 
-  return <img className="picture" src={img} alt="user uploaded image"></img>;
+  return (
+    <div className="picContainer">
+      <img className="picture" src={img} alt="user uploaded image"></img>
+    </div>
+  );
 };
 
 export default Picture;

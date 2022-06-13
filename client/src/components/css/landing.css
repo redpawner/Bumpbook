@@ -12,9 +12,16 @@
   overflow: hidden;
   box-sizing: border-box;
   background-color: var(--secondary);
-  border-radius: 15px;
   display: flex;
   flex-direction: column;
+}
+
+.vert {
+  border-radius: 0% 10%/ 40%;
+}
+
+.invert {
+  border-radius: 10% 0% / 40%;
 }
 
 .formHeader {

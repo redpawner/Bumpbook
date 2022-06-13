@@ -1,8 +1,48 @@
+.first {
+  margin: 10px;
+  border-radius: 10px;
+  display: grid;
+  grid-template-columns: 3fr 12fr 1fr;
+  grid-template-rows: 1fr;
+  background-color: var(--primary);
+  overflow: hidden;
+}
+
+.title {
+  font-size: larger;
+  font-weight: bolder;
+}
+
+.firstLeft {
+  padding: 10px;
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  font-size: x-large;
+  background-color: var(--p-dark);
+}
+
+.firstRight {
+  padding-left: 10px;
+}
+
+.upcoming {
+  margin: 10px;
+  border-radius: 10px;
+  display: grid;
+  grid-template-columns: 15fr 1fr;
+  grid-template-rows: 1fr;
+
+  background-color: var(--primary);
+  overflow: hidden;
+}
+
+.upcomingLeft {
+  padding-left: 10px;
+}
 .delete {
   background-image: url(../../../images/icons8-delete-64.png);
-  height: 2vh;
-  width: 1vw;
   background-size: contain;
   background-repeat: no-repeat;
-  background-color: white;
 }

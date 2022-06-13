@@ -3,26 +3,51 @@
   display: flex;
   flex-direction: column;
   width: 100%;
-  border-radius: 15px;
+  /* border-radius: 0% 1%/ 1% 99%; */
+  border-radius: 1% 1% 1% 1%;
   align-items: center;
   overflow: scroll;
 }
 
 .reelHeader {
   background-color: var(--p-dark);
+  height: 15%;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+}
+
+/* .reelHeader h2 {
+  margin-top: 0px;
+} */
+
+.uploadButton {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 15%;
+  padding-right: 20px;
+}
+
+.reelFill {
+  padding-left: 20px;
+}
+
+.upload-btn {
+  background-color: var(--primary);
+  height: 60%;
   width: 100%;
+  font-size: large;
 }
 
 .reel {
   box-sizing: border-box;
-  position: relative;
-  border-radius: 15px;
-  align-items: center;
+  margin-top: 5px;
+  margin-bottom: 5px;
   display: flex;
+  align-items: center;
+  padding-left: 5px;
+  width: 100%;
   overflow: scroll;
 }
 

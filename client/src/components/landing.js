@@ -60,7 +60,7 @@ const Landing = () => {
 
   return (
     <div className="landingContainer">
-      <div className="formContainer">
+      <div className="formContainer vert">
         <div className="formHeader">
           <h2 className="formtitle">Register</h2>
         </div>
@@ -71,7 +71,7 @@ const Landing = () => {
             type="text"
             id="email"
             name="email"
-            autocomplete="off"
+            autoComplete="off"
             required
           />
           <label htmlFor="firstName">First Name</label>
@@ -80,7 +80,7 @@ const Landing = () => {
             type="text"
             id="firstName"
             name="firstName"
-            autocomplete="off"
+            autoComplete="off"
             required
           />
           <label htmlFor="lastName">Last Name</label>
@@ -89,7 +89,7 @@ const Landing = () => {
             type="text"
             id="lastName"
             name="lastName"
-            autocomplete="off"
+            autoComplete="off"
             required
           />
           <label htmlFor="password">Password</label>
@@ -98,7 +98,7 @@ const Landing = () => {
             name="password"
             id="password"
             required
-            autocomplete="off"
+            autoComplete="off"
           />
           <button type="submit" className="landing-btn">
             Create account
@@ -106,7 +106,7 @@ const Landing = () => {
         </form>
       </div>
       <div className="logoL" role="img" alt="Bumpbook logo"></div>
-      <div className="formContainer">
+      <div className="formContainer invert">
         <div className="formHeader">
           <h2 className="formtitle">Login</h2>
         </div>
@@ -117,7 +117,7 @@ const Landing = () => {
             type="text"
             id="email2"
             name="email"
-            autocomplete="off"
+            autoComplete="off"
             autoFocus="on"
             required
           />
@@ -126,7 +126,7 @@ const Landing = () => {
             placeholder="********"
             id="password2"
             name="password"
-            autocomplete="off"
+            autoComplete="off"
             required
           />
           <button className="landing-btn" type="submit">

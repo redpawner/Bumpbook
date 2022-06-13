@@ -15,7 +15,7 @@ const Navbar = () => {
       {isAuthenticated ? (
         <>
           <div className="fill"></div>
-          <div className="intro">
+          <div className="intro second">
             <h1>{firstName}'s Bumpbook</h1>
           </div>
           <div className="logout">

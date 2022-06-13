@@ -1,3 +1,7 @@
+.picContainer {
+  width: 20%;
+  margin-right: 5px;
+}
 .picture {
-  margin-left: 5px;
+  height: 100%;
 }

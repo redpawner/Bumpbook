@@ -9,6 +9,11 @@ const Appointment = ({ aptInfo, first, delApt }) => {
     day: 'numeric',
   });
 
+  const daymonth = new Date(aptInfo.date).toLocaleDateString('en-gb', {
+    day: 'numeric',
+    month: 'short',
+  });
+
   const time = new Date(aptInfo.date).toLocaleTimeString('en-gb', {
     hour: '2-digit',
     minute: '2-digit',
@@ -22,18 +27,25 @@ const Appointment = ({ aptInfo, first, delApt }) => {
     <>
       {first ? (
         <div className="first">
-          <p className="title">Next appointment: {aptInfo.title}</p>
-          <p>
-            {time} - {prettyDate}
-          </p>
+          <div className="firstLeft">{daymonth}</div>
+          <div className="firstRight">
+            <p className="title">{aptInfo.title}</p>
+            <p>
+              {time} - {prettyDate}
+            </p>
+          </div>
           <div className="delete" onClick={deleteApt}></div>
         </div>
       ) : (
         <div className="upcoming">
-          <p className="title">{aptInfo.title}</p>
-          <p>
-            {time} - {prettyDate}
-          </p>
+          <div className="upcomingLeft">
+            {' '}
+            <p className="title">{aptInfo.title}</p>
+            <p>
+              {time} - {prettyDate}
+            </p>
+          </div>
+
           <div className="delete" onClick={deleteApt}></div>
         </div>
       )}

@@ -24,9 +24,9 @@ const Infobar = () => {
     let months = Math.floor(days / 30);
     let reDays = Math.floor(days % 30);
     return (
-      <p className="countdown">
+      <h2 className="countdown">
         {months} months and {reDays} days to go!
-      </p>
+      </h2>
     );
   };
 
@@ -37,33 +37,54 @@ const Infobar = () => {
       <div className="infoHeader">
         <h2>Due Date Countdown</h2>
       </div>
-      <div className="infoMain">
-        {dueDate ? (
-          <div>
-            {countdown}
-            {prettyDate}
+
+      {dueDate ? (
+        <>
+          <div className="infoMain">
+            <div>{countdown} </div>
+            <svg className="clock"></svg>
+            <h3> {prettyDate}</h3>
+
+            <button
+              className="ddcButton"
+              onClick={() => {
+                setshowDDC(true);
+              }}
+            >
+              Update Due Date
+            </button>
+            <DueCalc
+              show={showDDC}
+              setShow={setshowDDC}
+              close={() => {
+                setshowDDC(false);
+              }}
+            />
           </div>
-        ) : (
-          <div>
-            <p>Use due date calculator to initiate the countdown!</p>
-          </div>
-        )}
-      </div>
-      <div className="infoFooter">
-        <button
-          onClick={() => {
-            setshowDDC(true);
-          }}
-        >
-          Due Date Calculator
-        </button>
-        <DueCalc
-          show={showDDC}
-          close={() => {
-            setshowDDC(false);
-          }}
-        />
-      </div>
+        </>
+      ) : (
+        <div className="infoMain">
+          <h3>Lets get started by inputting your due date.</h3>
+          <br />
+          <h3>Click the button below to open the calculator!</h3>
+          <br></br>
+          <button
+            className="ddcButton"
+            onClick={() => {
+              setshowDDC(true);
+            }}
+          >
+            Due Date Calculator
+          </button>
+          <DueCalc
+            show={showDDC}
+            setShow={setshowDDC}
+            close={() => {
+              setshowDDC(false);
+            }}
+          />
+        </div>
+      )}
     </div>
   );
 };

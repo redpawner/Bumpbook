@@ -25,15 +25,18 @@ const Picturereel = () => {
   return (
     <div className="reelContainer">
       <div className="reelHeader">
-        <h2>Bumpreel</h2>{' '}
+        <div className="reelFill"></div>
+        <div>
+          <h2>Your Bumpreel</h2>
+        </div>
         <div className="uploadButton">
-          {' '}
           <button
+            className="upload-btn"
             onClick={() => {
               setshowPU(true);
             }}
           >
-            Upload Pic
+            Upload Bump
           </button>
           <PictureUpload
             show={showPU}

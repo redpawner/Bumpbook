@@ -1,4 +1,4 @@
-.modal-container {
+.ddc-container {
   position: fixed;
   left: 0;
   top: 0;
@@ -13,65 +13,80 @@
   pointer-events: none;
 }
 
-.modal-container.show {
+.ddc-container.show {
   opacity: 1;
   pointer-events: visible;
 }
 
-.modal-content {
-  width: 500px;
-  background-color: white;
+.ddc-content {
+  width: 30vw;
+  background-color: var(--secondary);
+  overflow: hidden;
   transform: translateY(-200px);
   transition: all 0.3s ease-in-out;
   border-radius: 25px;
-  border: solid var(--p-dark) 2px;
 }
 
-.modal-container.show .modal-content {
+.ddc-container.show .ddc-content {
   transform: translateY(0);
 }
 
-.modal-header,
+.ddc-header,
 .modal-footer {
   padding: 10px;
+  text-align: center;
 }
 
-.modal-header {
+.ddc-header {
   display: flex;
+  height: 4vh;
   align-items: center;
   justify-content: space-between;
+  background-color: var(--p-dark);
 }
 
-.psubmit {
-  background-color: rgb(213, 129, 190);
+.ddcsubmit {
+  background-color: var(--p-dark);
   font-weight: bold;
   font-size: 20px;
   font-family: sans-serif;
   height: 6vh;
   border: 0px;
   margin-top: 2vh;
-  margin-bottom: 1vh;
   border-radius: 10px;
+  margin-bottom: 0px;
 }
 
-.modal-btn {
-  align-self: flex-start;
+.ddc-btn {
   height: 2vh;
   font-size: small;
   font-weight: bold;
   font-size: 10px;
   font-family: sans-serif;
-
+  background-color: var(--primary);
   border: 0px;
   border-radius: 10px;
 }
 
-.modal-title {
-  margin: 0;
+.ddc-title {
+  margin-left: 5%;
 }
 
-.modal-body {
+.ddc-body {
   padding: 10px;
-  border-top: 1px solid var(--p-dark);
   border-bottom: 1px solid var(--p-dark);
+  display: flex;
+  flex-direction: column;
+}
+.ddc-body h2 {
+  align-self: center;
+  margin-bottom: 0px;
+}
+
+.ddc-body form {
+  padding-bottom: 20px;
+}
+
+.ddc-body label {
+  margin-bottom: 5px;
 }

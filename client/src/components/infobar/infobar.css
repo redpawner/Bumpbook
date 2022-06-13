@@ -5,7 +5,7 @@
   background-color: var(--secondary);
   display: flex;
   flex-direction: column;
-  border-radius: 15px;
+  border-radius: 1% 2% / 5% 8%;
   overflow: hidden;
 }
 
@@ -18,10 +18,30 @@
 }
 
 .infoMain {
-  height: 75%;
+  height: 65%;
+  padding: 10px;
+  text-align: center;
 }
 
 .infoFooter {
-  height: 10%;
+  height: 20%;
+  align-items: center;
   box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+}
+
+.ddcButton {
+  height: 30%;
+  width: 50%;
+  background-color: var(--p-dark);
+  font-size: larger;
+}
+
+.clock {
+  background-image: url('../../images/clock.svg');
+  background-repeat: no-repeat;
+  background-size: contain;
+  height: 50px;
+  margin-left: 45%;
 }
