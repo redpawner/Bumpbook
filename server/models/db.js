@@ -1,9 +1,10 @@
 const mongoose = require('mongoose');
+const SERVER = process.env.SERVER;
 
 main().catch((err) => console.log(err));
 
 async function main() {
-  await mongoose.connect('mongodb://localhost:27017/Bumpbaby');
+  await mongoose.connect('mongodb://' + SERVER);
 }
 
 let conn = mongoose.connection;

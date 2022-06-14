@@ -71,6 +71,7 @@ const Landing = () => {
             type="text"
             id="email"
             name="email"
+            min=""
             autoComplete="off"
             required
           />
@@ -80,6 +81,7 @@ const Landing = () => {
             type="text"
             id="firstName"
             name="firstName"
+            min="2"
             autoComplete="off"
             required
           />
@@ -88,15 +90,18 @@ const Landing = () => {
             placeholder="Theoven"
             type="text"
             id="lastName"
+            min="2"
             name="lastName"
             autoComplete="off"
             required
           />
           <label htmlFor="password">Password</label>
           <input
+            type="password"
             placeholder="********"
             name="password"
             id="password"
+            min="8"
             required
             autoComplete="off"
           />
@@ -124,8 +129,10 @@ const Landing = () => {
           <label htmlFor="password2">Password</label>
           <input
             placeholder="********"
+            type="password"
             id="password2"
             name="password"
+            min="8"
             autoComplete="off"
             required
           />
