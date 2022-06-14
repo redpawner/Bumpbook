@@ -43,8 +43,12 @@ button {
   font-family: 'Belgrano', serif;
 }
 
-button:hover {
+button:not(:focus):hover {
   opacity: 0.8;
+}
+
+button:hover {
+  opacity: 1;
 }
 
 input {

@@ -44,7 +44,7 @@ const LinkGen = () => {
 
   const infoLinkList = infoLinks.map((link) => {
     return (
-      <a href={link.url} key={link.headline}>
+      <a href={link.url} key={link.headline} target="_blank">
         » {link.headline}
       </a>
     );
@@ -52,11 +52,12 @@ const LinkGen = () => {
 
   const weekLinkList = weekLinks.map((link) => {
     return (
-      <a href={link.url} key={link.headline}>
+      <a href={link.url} key={link.headline} target="_blank">
         » {link.headline}
       </a>
     );
   });
+
   useEffect(() => {
     if (!dueDate) return;
     setInfoLinks([]);

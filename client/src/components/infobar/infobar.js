@@ -54,7 +54,7 @@ const Infobar = () => {
                   setshowDDC(false);
                 }}
               />
-              <div>{countdown} </div>
+              <div className="countdown">{countdown} </div>
               <svg className="clock"></svg>
               <h3> {prettyDate}</h3>
             </div>

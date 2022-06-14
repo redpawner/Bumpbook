@@ -1,8 +1,11 @@
 import { register, getUser, login } from '../services/api-client';
 import useUserStore from '../states/user';
 import './css/landing.css';
+import { useState } from 'react';
 
 const Landing = () => {
+  const [status, setStatus] = useState('');
+  const [exists, setExists] = useState('');
   const authorise = useUserStore((state) => state.login);
   const update = useUserStore((state) => state.updateUser);
 
@@ -18,7 +21,8 @@ const Landing = () => {
     register(newUser)
       .then((response) => {
         if (response.error) {
-          alert(`${response.message}`);
+          setExists(`${response.message}`);
+          setTimeout(() => setExists(''), 2000);
         } else {
           const { accessToken } = response;
           localStorage.setItem('accessToken', accessToken);
@@ -43,7 +47,8 @@ const Landing = () => {
     login(user)
       .then((response) => {
         if (response.error) {
-          alert(`${response.message}`);
+          setStatus(`${response.message}`);
+          setTimeout(() => setStatus(''), 2000);
         } else {
           const { accessToken } = response;
           localStorage.setItem('accessToken', accessToken);
@@ -108,6 +113,7 @@ const Landing = () => {
           <button type="submit" className="landing-btn">
             Create account
           </button>
+          <h4>{exists}</h4>
         </form>
       </div>
       <div className="logoL" role="img" alt="Bumpbook logo"></div>
@@ -139,9 +145,8 @@ const Landing = () => {
           <button className="landing-btn" type="submit">
             Login
           </button>
+          <h4>{status}</h4>
         </form>
-        {/* {test.authenticated ? <h1>working</h1> : <h1>not working</h1>}
-        <h1>{test.user.email}</h1> */}
       </div>
     </div>
   );

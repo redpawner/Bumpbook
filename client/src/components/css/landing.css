@@ -46,6 +46,12 @@
   margin-top: 2vh;
 }
 
+.landingContainer h4 {
+  color: red;
+  font-weight: bolder;
+  text-align: center;
+}
+
 input {
   height: 4vh;
   margin-top: 1vh;

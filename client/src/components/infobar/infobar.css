@@ -42,6 +42,11 @@
   width: 100%;
 }
 
+.countdown {
+  width: 90%;
+  word-wrap: break-word;
+}
+
 .ddcButton {
   height: 80%;
   width: 60%;

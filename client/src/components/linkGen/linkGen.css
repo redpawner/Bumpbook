@@ -20,6 +20,7 @@
   display: flex;
   overflow: scroll;
   padding-left: 5%;
+  padding-right: 2%;
 }
 
 .lgMain h4 {
@@ -30,6 +31,7 @@
 .generalInfo {
   display: flex;
   flex-direction: column;
+  width: 55%;
   overflow-y: scroll;
 }
 
@@ -37,6 +39,7 @@
   display: flex;
   flex-direction: column;
   overflow-y: scroll;
+  padding-left: 2%;
 }
 
 a {
