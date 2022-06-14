@@ -7,7 +7,7 @@ import './nameGen.css';
 
 const NameGen = () => {
   const [showGM, setshowGM] = useState(false);
-  const [showSS, setshowSS] = useState(false);
+  // const [showSS, setshowSS] = useState(false);
   const accessToken = localStorage.getItem('accessToken');
   const favNames = useUserStore((state) => {
     return state.user.favNames;
@@ -25,7 +25,7 @@ const NameGen = () => {
 
   const genBoyList = favNames
     .filter((e) => {
-      if (e.sex !== 'girl') return e;
+      return e.sex !== 'girl';
     })
     .map((favName) => {
       return <Name name={favName} key={favName.name} del={(i) => del(i)} />;
@@ -33,7 +33,7 @@ const NameGen = () => {
 
   const genGirlList = favNames
     .filter((e) => {
-      if (e.sex !== 'boy') return e;
+      return e.sex !== 'boy';
     })
     .map((favName) => {
       return <Name name={favName} key={favName.name} del={(i) => del(i)} />;
@@ -83,14 +83,14 @@ const NameGen = () => {
           >
             Add Name
           </button>
-          <button
+          {/* <button
             className="ngButton"
             onClick={() => {
               setshowSS(true);
             }}
           >
             Select Sex
-          </button>
+          </button> */}
         </div>
       </div>
     </div>

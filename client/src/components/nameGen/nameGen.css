@@ -30,6 +30,7 @@
   display: flex;
   height: 75%;
   max-height: 75%;
+  padding-left: 5%;
 }
 
 .nameList h3 {
@@ -49,10 +50,9 @@
   flex-direction: column;
   overflow: scroll;
   height: 80%;
-  font-family: 'Abril Fatface', cursive;
   font-size: x-large;
-  padding-top: 2%;
-  padding-left: 10%;
+  padding-top: 4%;
+  padding-left: 20%;
 }
 
 .ngFooter {

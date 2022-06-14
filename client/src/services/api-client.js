@@ -108,6 +108,22 @@ export const addPicture = (pic, accessToken) => {
     });
 };
 
+export const delPicture = (pic, accessToken) => {
+  const options = {
+    method: 'DELETE',
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${accessToken}`,
+    },
+    body: JSON.stringify(pic),
+  };
+  return fetch(baseUrl + '/pictures', options)
+    .then((res) => res.json())
+    .catch((error) => {
+      console.log(error);
+    });
+};
+
 export const getPic = (url, accessToken) => {
   const options = {
     method: 'POST',
@@ -169,6 +185,21 @@ export const genName = (sex, accessToken) => {
     body: JSON.stringify(sex),
   };
   return fetch(baseUrl + '/getname', options)
+    .then((res) => res.json())
+    .catch((error) => {
+      console.log(error);
+    });
+};
+
+export const queryNHS = (cat) => {
+  const options = {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(cat),
+  };
+  return fetch(baseUrl + '/links', options)
     .then((res) => res.json())
     .catch((error) => {
       console.log(error);

@@ -15,8 +15,3 @@
   align-items: center;
   height: 15%;
 }
-
-.lgFooter {
-  background-color: var(--p-dark);
-  box-sizing: border-box;
-}

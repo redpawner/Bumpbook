@@ -10,6 +10,9 @@
 
 .schHeader {
   background-color: var(--p-dark);
+  display: flex;
+  justify-content: center;
+  align-items: center;
   height: 10%;
 }
 
@@ -27,7 +30,7 @@
 .schFooter {
   background-color: var(--secondary);
   box-sizing: border-box;
-  height: 40%;
+  height: 50%;
   margin-top: 10px;
   overflow: none;
 }

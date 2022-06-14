@@ -21,10 +21,7 @@ const PictureUpload = ({ show, close }) => {
     let pic = new FormData();
     pic.append('date', event.target.picdate.value);
     pic.append('bumpImage', event.target.picfile.files[0]);
-    const url = {
-      url: URL.createObjectURL(event.target.picfile.files[0]),
-      date: JSON.stringify(event.target.picdate.value),
-    };
+
     addPicture(pic, accessToken)
       .then((res) => {
         const newPics = [...pictures, res];
@@ -35,7 +32,7 @@ const PictureUpload = ({ show, close }) => {
     setStatus('Bump added!');
     setTimeout(() => {
       close();
-    }, 1000);
+    }, 1500);
   };
 
   const handleFileChange = (e) => {
@@ -70,7 +67,12 @@ const PictureUpload = ({ show, close }) => {
             ></input>
             <div className="preview">
               {image.preview && (
-                <img src={image.preview} width="100" height="100" />
+                <img
+                  src={image.preview}
+                  width="100"
+                  height="100"
+                  alt="preview"
+                />
               )}
             </div>
             <label htmlFor="picdate">When was it taken?</label>

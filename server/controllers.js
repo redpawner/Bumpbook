@@ -89,7 +89,6 @@ const addApt = async (req, res) => {
 };
 
 const delApt = async (req, res) => {
-  console.log(XH);
   try {
     const apt = { title: req.body.title, date: req.body.date };
     await User.findOneAndUpdate(
@@ -127,6 +126,22 @@ const getPictures = async (req, res) => {
     res.sendFile(url, { root: __dirname });
   } catch (error) {
     console.log('error with getUser');
+    res.status(500).send({ error: 'error' });
+  }
+};
+
+const delPicture = async (req, res) => {
+  try {
+    const pic = { url: req.body.url, date: req.body.date };
+    await User.findOneAndUpdate(
+      { _id: req.user.id },
+      {
+        $pull: { pictures: pic },
+      }
+    ),
+      res.status(200).send({ message: 'deleted' });
+  } catch (error) {
+    console.log('error with delApt');
     res.status(500).send({ error: 'error' });
   }
 };
@@ -186,6 +201,38 @@ const genName = async (req, res) => {
   }
 };
 
+//worked until I got banned by NHS
+
+// const getLinks = async (req, res) => {
+//   try {
+//     const options = {
+//       method: 'GET',
+//     };
+//     const url = 'https://api.nhs.uk/pregnancy/' + req.body.url;
+//     const response = await fetcher(url, options);
+//     const data = await response.json();
+//     res.status(200).send(data.mainEntityOfPage[0].mainEntityOfPage);
+//   } catch (error) {
+//     console.log('error with getLinks');
+//     res.status(500).send({ error: 'error' });
+//   }
+// };
+
+const getLinks = async (req, res) => {
+  try {
+    const options = {
+      method: 'GET',
+    };
+    const url = 'https://api.nhs.uk/pregnancy/' + req.body.url;
+    const response = await fetcher(url, options);
+    const data = await response.json();
+    res.status(200).send(data.mainEntityOfPage[0].mainEntityOfPage);
+  } catch (error) {
+    console.log('error with getLinks');
+    res.status(500).send({ error: 'error' });
+  }
+};
+
 module.exports = {
   addName,
   delName,
@@ -198,4 +245,6 @@ module.exports = {
   login,
   uploadImage,
   getPictures,
+  getLinks,
+  delPicture,
 };

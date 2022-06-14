@@ -1,6 +1,6 @@
 import { addApt, delApt } from '../../services/api-client';
 import useUserStore from '../../states/user';
-import noOld from '../../utility/utils';
+import { removeOldApts } from '../../utility/utils';
 import Appointment from './appointment';
 import './css/schedule.css';
 
@@ -20,7 +20,7 @@ const Schedule = () => {
     updateAppointments(newAppointments);
   };
 
-  const listAppointments = noOld(appointments)
+  const listAppointments = removeOldApts(appointments)
     .sort((a, b) => {
       return new Date(a.date) - new Date(b.date);
     })

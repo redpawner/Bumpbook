@@ -1,6 +1,6 @@
 .logoutButton {
   background-color: var(--primary);
-  height: 60%;
-  width: 80%;
+  height: 50%;
+  width: 60%;
   font-size: large;
 }

@@ -1,7 +1,17 @@
 .picContainer {
-  width: 20%;
-  margin-right: 5px;
+  height: 100%;
+  display: flex;
+  margin-right: -2%;
 }
 .picture {
   height: 100%;
+}
+
+.pic-btn {
+  position: relative;
+  align-self: flex-start;
+  opacity: 0.1;
+  right: 8%;
+  margin-top: 1%;
+  color: black;
 }

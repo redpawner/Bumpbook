@@ -13,7 +13,9 @@ const {
   updDate,
   login,
   uploadImage,
+  delPicture,
   getPictures,
+  getLinks,
 } = require('./controllers');
 
 router.get('/user', authMiddleware, getUser);
@@ -31,6 +33,8 @@ router.post(
   upload.single('bumpImage'),
   uploadImage
 );
+router.delete('/pictures', authMiddleware, delPicture);
 router.post('/getpictures', authMiddleware, getPictures);
+router.post('/links', getLinks);
 
 module.exports = router;

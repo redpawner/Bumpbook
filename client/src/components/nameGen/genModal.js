@@ -24,7 +24,6 @@ const GenModal = ({ show, close }) => {
     genName({ sex: event.target.sexSelect.value }, accessToken).then((res) =>
       setchosenName(res.name)
     );
-    event.target.reset();
   };
 
   const updateName = (event) => {
@@ -38,7 +37,6 @@ const GenModal = ({ show, close }) => {
     addName(newName, accessToken);
     const newFaveNames = [...favNames, newName];
     updateFavNames(newFaveNames);
-    event.target.reset();
   };
 
   return (

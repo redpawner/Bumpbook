@@ -6,9 +6,8 @@
 }
 
 .formContainer {
-  height: 70vh;
+  height: 75vh;
   width: 30%;
-  box-sizing: border-box;
   overflow: hidden;
   box-sizing: border-box;
   background-color: var(--secondary);

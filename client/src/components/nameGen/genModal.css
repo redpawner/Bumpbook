@@ -60,12 +60,12 @@
   border-bottom: 1px solid var(--p-dark);
   display: flex;
   flex-direction: column;
+  justify-content: space-around;
   align-items: center;
 }
 
 .gm-body h2 {
   align-self: center;
-  margin-bottom: 0px;
 }
 
 .gm-form1 {
@@ -79,6 +79,8 @@
 
 .gm-form3 {
   padding-bottom: 20px;
+  margin: 0px;
+  width: 100%;
   display: flex;
   align-items: center;
 }
