@@ -203,21 +203,6 @@ const genName = async (req, res) => {
 
 //worked until I got banned by NHS
 
-// const getLinks = async (req, res) => {
-//   try {
-//     const options = {
-//       method: 'GET',
-//     };
-//     const url = 'https://api.nhs.uk/pregnancy/' + req.body.url;
-//     const response = await fetcher(url, options);
-//     const data = await response.json();
-//     res.status(200).send(data.mainEntityOfPage[0].mainEntityOfPage);
-//   } catch (error) {
-//     console.log('error with getLinks');
-//     res.status(500).send({ error: 'error' });
-//   }
-// };
-
 const getLinks = async (req, res) => {
   try {
     const options = {

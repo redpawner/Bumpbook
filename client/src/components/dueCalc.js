@@ -1,7 +1,7 @@
 import { useState, React } from 'react';
 import './css/dueCalc.css';
 import useUserStore from '../states/user';
-import { updDate, addApt } from '../services/api-client';
+import { updDate, addApt, delApt } from '../services/api-client';
 
 const DueCalc = ({ show, setShow, close }) => {
   const accessToken = localStorage.getItem('accessToken');
@@ -32,6 +32,13 @@ const DueCalc = ({ show, setShow, close }) => {
 
   const calcDueDate = (event) => {
     event.preventDefault();
+
+    const oldDueDate = { title: 'Baby Incoming!', date: new Date(dDate) };
+    delApt(oldDueDate, accessToken).catch((err) => console.log(err));
+    const freshAppointments = appointments.filter(
+      (e) => e.title !== oldDueDate.title
+    );
+
     const dueDate = new Date(event.target.pdate.value);
     dueDate.setMonth(dueDate.getMonth() - 3);
     dueDate.setYear(dueDate.getFullYear() + 1);
@@ -46,7 +53,7 @@ const DueCalc = ({ show, setShow, close }) => {
       date: dueDate,
     };
     addApt(newApt, accessToken).catch((err) => console.log(err));
-    const newAppointments = [...appointments, newApt];
+    const newAppointments = [...freshAppointments, newApt];
     updateAppointments(newAppointments);
     event.target.reset();
     setTimeout(() => {
@@ -72,6 +79,12 @@ const DueCalc = ({ show, setShow, close }) => {
 
   const submitDueDate = (event) => {
     event.preventDefault();
+    const oldDueDate = { title: 'Baby Incoming!', date: new Date(dDate) };
+    delApt(oldDueDate, accessToken).catch((err) => console.log(err));
+    const freshAppointments = appointments.filter(
+      (e) => e.title !== oldDueDate.title
+    );
+
     const dueDate = new Date(event.target.mandate.value);
     updDate({ date: dueDate }, accessToken).catch((err) => console.log(err));
     updateDate(dueDate);
@@ -81,7 +94,7 @@ const DueCalc = ({ show, setShow, close }) => {
       date: dueDate,
     };
     addApt(newApt, accessToken).catch((err) => console.log(err));
-    const newAppointments = [...appointments, newApt];
+    const newAppointments = [...freshAppointments, newApt];
     updateAppointments(newAppointments);
     event.target.reset();
     setTimeout(() => {

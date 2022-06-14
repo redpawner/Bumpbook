@@ -48,6 +48,18 @@ const useUserStore = create((set) => ({
       },
     }));
   },
+  weekLinks: [],
+  setWeekLinks: (links) => {
+    set(() => ({
+      weekLinks: links,
+    }));
+  },
+  infoLinks: [],
+  setInfoLinks: (links) => {
+    set(() => ({
+      infoLinks: links,
+    }));
+  },
 }));
 
 export default useUserStore;

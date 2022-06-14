@@ -15,3 +15,30 @@
   align-items: center;
   height: 15%;
 }
+
+.lgMain {
+  display: flex;
+  overflow: scroll;
+  padding-left: 5%;
+}
+
+.lgMain h4 {
+  text-decoration: underline;
+  margin-bottom: 0px;
+}
+
+.generalInfo {
+  display: flex;
+  flex-direction: column;
+  overflow-y: scroll;
+}
+
+.weekInfo {
+  display: flex;
+  flex-direction: column;
+  overflow-y: scroll;
+}
+
+a {
+  text-decoration: none;
+}

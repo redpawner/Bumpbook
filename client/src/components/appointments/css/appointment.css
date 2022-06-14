@@ -33,13 +33,12 @@
   display: grid;
   grid-template-columns: 15fr 1fr;
   grid-template-rows: 1fr;
-
   background-color: var(--primary);
   overflow: hidden;
 }
 
 .upcomingLeft {
-  padding-left: 10px;
+  padding-left: 15%;
 }
 .delete {
   background-image: url(../../../images/icons8-delete-64.png);
