@@ -31,6 +31,7 @@ const PictureUpload = ({ show, close }) => {
     event.target.reset();
     setStatus('Bump added!');
     setTimeout(() => {
+      setStatus('');
       close();
     }, 1500);
   };

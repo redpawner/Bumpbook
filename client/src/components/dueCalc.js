@@ -32,7 +32,7 @@ const DueCalc = ({ show, setShow, close }) => {
 
   const calcDueDate = (event) => {
     event.preventDefault();
-
+    setShowDate(true);
     const oldDueDate = { title: 'Baby Incoming!', date: new Date(dDate) };
     delApt(oldDueDate, accessToken).catch((err) => console.log(err));
     const freshAppointments = appointments.filter(
@@ -46,8 +46,6 @@ const DueCalc = ({ show, setShow, close }) => {
 
     updDate({ date: dueDate }, accessToken).catch((err) => console.log(err));
     updateDate(dueDate);
-    setShowDate(true);
-
     const newApt = {
       title: 'Baby Incoming!',
       date: dueDate,
@@ -139,7 +137,7 @@ const DueCalc = ({ show, setShow, close }) => {
               <h2>{prettyDate}!</h2>
             </div>
           ) : (
-            <h2>Your baby is due... </h2>
+            <div></div>
           )}
         </div>
       </div>
