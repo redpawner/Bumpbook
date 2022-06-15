@@ -1,7 +1,5 @@
 # BUMPBOOK
 
-==========
-
 ## Introduction
 
 Bumpbook is a responsive, desktop app for expectant mothers.
