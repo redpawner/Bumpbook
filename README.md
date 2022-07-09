@@ -10,7 +10,7 @@ It provides users with a single-page, user-friendly dashboard to store and view 
 
 1. Run the following command in the top directory to download the relevant packages:
 
-## `npm install`
+<h4> `npm install` </h4>
 
 2. Set up a [MongoDB](https://www.mongodb.com/) database running on your local machine.
 
