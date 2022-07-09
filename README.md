@@ -15,7 +15,7 @@ Features include account login and registration with custom built authentication
 
 
 |**Frontend**|**Backend**|**Database**|
-|---:|---:|---:|
+|---|---|---|
 |React|Express|MongoDB|
 |Zustand|Multer|Mongoose|
 
@@ -43,7 +43,7 @@ In the <strong>CLIENT</strong> directory, you can run:
 
 <h4><em>npm start</em></h4>
 
-This will run the app client. Open [http://localhost:PORT](http://localhost:PORT) to view the app in your browser.
+This will run the app client. Open [http://localhost:300x](http://localhost:300x) to view the app in your browser.
 
 The page will reload when you make changes in the client directory.
 
@@ -52,4 +52,4 @@ In the <strong>SERVER</strong> directory, you can run:
 
 <h4><em>node index.js</em></h4>
 
-This will run the back-end server. Alternatively you can use nodemon which will automatically reload the server when you make changes in the server directory e.g.
+This will run the server adn connect to your database. Alternatively you can use nodemon which will automatically reload the server when you make changes in the server directory.
