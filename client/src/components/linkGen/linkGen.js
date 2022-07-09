@@ -64,7 +64,7 @@ const LinkGen = () => {
     setWeekLinks([]);
     let months = calculatePregMonths(dueDate);
     linkGetter(months);
-  }, [dueDate]);
+  }, [dueDate]); // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
     <div className="lgContainer">

@@ -129,6 +129,7 @@ const Landing = () => {
             id="email2"
             name="email"
             autoComplete="off"
+            autoCorrect="off"
             autoFocus="on"
             required
           />
@@ -139,7 +140,7 @@ const Landing = () => {
             id="password2"
             name="password"
             min="8"
-            autoComplete="off"
+            autoComplete="new-password"
             required
           />
           <button className="landing-btn" type="submit">
