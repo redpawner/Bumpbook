@@ -1,8 +1,10 @@
 # BUMPBOOK
 
+***
 
 ## Introduction
 
+***
 
 Bumpbook is a responsive, desktop app for expectant mothers.
 
@@ -11,12 +13,14 @@ It provides users with a single-page, user-friendly dashboard to store and view 
 
 ### Tech Stack
 
-___
+***
 
 Bumpbook's frontend was built with React and Zustand state-management solution. The backend server was built with Express using Multer middelware for local disk image storage. MongoDB with Mongoose ODM was used for the database.
 
 
 ### Installation
+
+***
 
 1. Run the following command in the top directory to download the relevant packages:
 
@@ -31,6 +35,7 @@ Please see the .env.example.md files in each folder for an explanation of the re
 
 ### Available Scripts
 
+***
 
 In the <strong>CLIENT</strong> directory, you can run:
 
@@ -53,11 +58,13 @@ This will run the back-end server. Alternatively you can use nodemon which will 
 
 ### Usage
 
+***
 
 Once you have initiated both the client and server you will be directed to the landing page where you can register an account. You can then begin exploring all the features of the app.
 
 
 ### Acknowledgments
 
+***
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
