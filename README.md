@@ -11,7 +11,7 @@ It provides users with a single-page, user-friendly dashboard to store and view 
 
 ### Tech Stack
 
-***
+___
 
 Bumpbook's frontend was built with React and Zustand state-management solution. The backend server was built with Express using Multer middelware for local disk image storage. MongoDB with Mongoose ODM was used for the database.
 
