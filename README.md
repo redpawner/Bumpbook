@@ -20,7 +20,7 @@ Please see the .env.example.md files in each folder for an explanation of the re
 
 ## Available Scripts
 
-In the CLIENT directory, you can run:
+In the <strong>CLIENT</strong> directory, you can run:
 
 <h4><em>npm start</em></h4>
 
@@ -28,9 +28,9 @@ This will run the app client. Open [http://localhost:PORT](http://localhost:PORT
 
 The page will reload when you make changes in the client directory.
 
----
+<br>
 
-In the SERVER directory, you can run:
+In the <strong>SERVER</strong> directory, you can run:
 
 <h4><em>node index.js</em></h4>
 
