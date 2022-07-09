@@ -12,7 +12,12 @@ It provides users with a single-page, user-friendly dashboard to store and view 
 ## Tech Stack
 
 
-Bumpbook's frontend was built with React and Zustand state-management solution. The backend server was built with Express using Multer middelware for local disk image storage. MongoDB with Mongoose ODM was used for the database.
+|**Frontend**|**Backend**|**Database**|
+|---:|---:|---:|
+|React|Express|MongoDB|
+|Zustand|Multer|Mongoose|
+
+Bumpbook's frontend was built with React and Zustand state-management solution. The backend server was built with Express using Multer middleware for local disk image storage. MongoDB with Mongoose ODM was used for the database.
 
 
 ## Installation
@@ -41,23 +46,8 @@ This will run the app client. Open [http://localhost:PORT](http://localhost:PORT
 The page will reload when you make changes in the client directory.
 
 <br>
-
 In the <strong>SERVER</strong> directory, you can run:
 
 <h4><em>node index.js</em></h4>
 
 This will run the back-end server. Alternatively you can use nodemon which will automatically reload the server when you make changes in the server directory e.g.
-
-<h4><em>npx nodemon index.js</em></h4>
-
-
-## Usage
-
-
-Once you have initiated both the client and server you will be directed to the landing page where you can register an account. You can then begin exploring all the features of the app.
-
-
-## Acknowledgments
-
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
