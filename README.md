@@ -8,6 +8,8 @@ Bumpbook is a responsive, desktop app for expectant mothers.
 
 It provides users with a single-page, user-friendly dashboard to store and view key information throughout their pregnancy journey.
 
+Features include account login and registration with custom built authentication; a due date calculator; an interactive appointments list; a baby name generator API + baby name list; a useful links list that dynamically changes (using an NHS API) depending on how far along the user is in their pregnancy; and the ability to upload baby bump pictures in a scrollable view reel.
+
 
 ## Tech Stack
 
