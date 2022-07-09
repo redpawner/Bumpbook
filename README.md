@@ -10,7 +10,7 @@ It provides users with a single-page, user-friendly dashboard to store and view 
 
 1. Run the following command in the top directory to download the relevant packages:
 
-<h4> `npm install` </h4>
+<h4><em>npm install</em></h4>
 
 2. Set up a [MongoDB](https://www.mongodb.com/) database running on your local machine.
 
@@ -22,7 +22,7 @@ Please see the .env.example.md files in each folder for an explanation of the re
 
 In the CLIENT directory, you can run:
 
-## `npm start`
+<h4><em>npm start</em></h4>
 
 This will run the app client. Open [http://localhost:PORT](http://localhost:PORT) to view the app in your browser.
 
@@ -32,11 +32,11 @@ The page will reload when you make changes in the client directory.
 
 In the SERVER directory, you can run:
 
-## `node index.js`
+<h4><em>node index.js</em></h4>
 
 This will run the back-end server. Alternatively you can use nodemon which will automatically reload the server when you make changes in the server directory e.g.
 
-## `npx nodemon index.js`
+<h4><em>npx nodemon index.js</em></h4>
 
 ## Usage
 
