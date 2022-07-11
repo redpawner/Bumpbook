@@ -25,15 +25,13 @@ Bumpbook's frontend was built with React and Zustand state-management solution. 
 ## Installation
 
 
-1. Run the following command in the top directory to download the relevant packages:
+Run the following command in the top directory to download the relevant packages:
 
-<h4><em>npm install</em></h4>
+    npm install
 
-2. Set up a [MongoDB](https://www.mongodb.com/) database running on your local machine.
+Set up a [MongoDB](https://www.mongodb.com/) database running on your local machine.
 
-3. Create a .env file in the server folder with the relevant information and a second .env in the client folder with the relevant information.
-
-Please see the .env.example.md files in each folder for an explanation of the required key value pairs.
+Create a .env file in the server folder with the relevant information and a second .env in the client folder with the relevant information. Please see the .env.example.md files in each folder for an explanation of the required key value pairs.
 
 
 ## Available Scripts
@@ -41,15 +39,12 @@ Please see the .env.example.md files in each folder for an explanation of the re
 
 In the <strong>CLIENT</strong> directory, you can run:
 
-<h4><em>npm start</em></h4>
+    npm start
 
-This will run the app client. Open [http://localhost:300x](http://localhost:300x) to view the app in your browser.
+This will run the app client. Open [http://localhost:300x](http://localhost:300x) to view the app in your browser. The page will reload when you make changes in the client directory.
 
-The page will reload when you make changes in the client directory.
-
-<br>
 In the <strong>SERVER</strong> directory, you can run:
 
-<h4><em>node index.js</em></h4>
+    node index.js
 
-This will run the server adn connect to your database. Alternatively you can use nodemon which will automatically reload the server when you make changes in the server directory.
+This will run the server and connect to your database. Alternatively you can use nodemon which will automatically reload the server when you make changes in the server directory.
