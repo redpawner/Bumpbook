@@ -1,4 +1,4 @@
-# BUMPBOOK
+# Bumpbook
 
 
 ## Introduction
